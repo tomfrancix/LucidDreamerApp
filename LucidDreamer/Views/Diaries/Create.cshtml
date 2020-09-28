@@ -1,0 +1,349 @@
+﻿@using Microsoft.AspNet.Identity
+@model LucidDreamer.Models.Diary
+
+
+<div class="container-fluid plain">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Summary of your day</h3><br />
+                    @Html.TextAreaFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 20 } })
+                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many hours did you 'SLEEP'?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="Sleep1" name="Sleep" value="1" checked>
+                        <label for="Sleep1">1</label>
+
+                        <input type="radio" id="Sleep2" name="Sleep" value="2">
+                        <label for="Sleep2">2</label>
+
+                        <input type="radio" id="Sleep3" name="Sleep" value="3">
+                        <label for="Sleep3">3</label>
+
+                        <input type="radio" id="Sleep4" name="Sleep" value="4">
+                        <label for="Sleep4">4</label>
+
+                        <input type="radio" id="Sleep5" name="Sleep" value="5">
+                        <label for="Sleep5">5</label>
+
+                        <input type="radio" id="Sleep6" name="Sleep" value="6">
+                        <label for="Sleep6">6</label>
+
+                        <input type="radio" id="Sleep7" name="Sleep" value="7">
+                        <label for="Sleep7">7</label>
+
+                        <input type="radio" id="Sleep8" name="Sleep" value="8">
+                        <label for="Sleep8">8</label>
+
+                        <input type="radio" id="Sleep9" name="Sleep" value="9">
+                        <label for="Sleep9">9</label>
+
+                        <input type="radio" id="Sleep10" name="Sleep" value="10">
+                        <label for="Sleep10">10</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Sleep, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>What time did you 'GO TO BED' last night?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="MorningTime1" name="BedTime" value="19" checked>
+                        <label for="MorningTime1">+ 7pm</label>
+
+                        <input type="radio" id="MorningTime2" name="BedTime" value="20">
+                        <label for="MorningTime2">8pm</label>
+
+                        <input type="radio" id="MorningTime3" name="BedTime" value="21">
+                        <label for="MorningTime3">9pm</label>
+
+                        <input type="radio" id="MorningTime4" name="BedTime" value="22">
+                        <label for="MorningTime4">10pm</label>
+
+                        <input type="radio" id="MorningTime5" name="BedTime" value="23">
+                        <label for="MorningTime5">11pm</label>
+
+                        <input type="radio" id="MorningTime6" name="BedTime" value="0">
+                        <label for="MorningTime6">12pm</label>
+
+                        <input type="radio" id="MorningTime7" name="BedTime" value="1">
+                        <label for="MorningTime7">1am</label>
+
+                        <input type="radio" id="MorningTime8" name="BedTime" value="2">
+                        <label for="MorningTime8">2am</label>
+
+                        <input type="radio" id="MorningTime9" name="BedTime" value="3">
+                        <label for="MorningTime9">3am</label>
+
+                        <input type="radio" id="MorningTime10" name="BedTime" value="4">
+                        <label for="MorningTime10">4am</label>
+
+                        <input type="radio" id="MorningTime11" name="BedTime" value="5">
+                        <label for="MorningTime11">5am</label>
+
+                        <input type="radio" id="MorningTime12" name="BedTime" value="6">
+                        <label for="MorningTime12">6am +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.BedTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>What time did you 'GET UP' this morning?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="qMorningTime1" name="MorningTime" value="19" checked>
+                        <label for="qMorningTime1">+ 7pm</label>
+
+                        <input type="radio" id="qMorningTime2" name="MorningTime" value="20">
+                        <label for="qMorningTime2">8pm</label>
+
+                        <input type="radio" id="qMorningTime3" name="MorningTime" value="21">
+                        <label for="qMorningTime3">9pm</label>
+
+                        <input type="radio" id="qMorningTime4" name="MorningTime" value="22">
+                        <label for="qMorningTime4">10pm</label>
+
+                        <input type="radio" id="qMorningTime5" name="MorningTime" value="23">
+                        <label for="qMorningTime5">11pm</label>
+
+                        <input type="radio" id="qMorningTime6" name="MorningTime" value="0">
+                        <label for="qMorningTime6">12pm</label>
+
+                        <input type="radio" id="qMorningTime7" name="MorningTime" value="1">
+                        <label for="qMorningTime7">1am</label>
+
+                        <input type="radio" id="qMorningTime8" name="MorningTime" value="2">
+                        <label for="qMorningTime8">2am</label>
+
+                        <input type="radio" id="qMorningTime9" name="MorningTime" value="3">
+                        <label for="qMorningTime9">3am</label>
+
+                        <input type="radio" id="qMorningTime10" name="MorningTime" value="4">
+                        <label for="qMorningTime10">4am</label>
+
+                        <input type="radio" id="qMorningTime11" name="MorningTime" value="5">
+                        <label for="qMorningTime11">5am</label>
+
+                        <input type="radio" id="qMorningTime12" name="MorningTime" value="6">
+                        <label for="qMorningTime12">6am +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.MorningTime, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many minutes did you 'MEDITATE'?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="Meditation1" name="Meditation" value="5" checked>
+                        <label for="Meditation1">1</label>
+
+                        <input type="radio" id="Meditation2" name="Meditation" value="10">
+                        <label for="Meditation2">2</label>
+
+                        <input type="radio" id="Meditation3" name="Meditation" value="15">
+                        <label for="Meditation3">3</label>
+
+                        <input type="radio" id="Meditation4" name="Meditation" value="20">
+                        <label for="Meditation4">4</label>
+
+                        <input type="radio" id="Meditation5" name="Meditation" value="30">
+                        <label for="Meditation5">5</label>
+
+                        <input type="radio" id="Meditation6" name="Meditation" value="45">
+                        <label for="Meditation6">6</label>
+
+                        <input type="radio" id="Meditation7" name="Meditation" value="60">
+                        <label for="Meditation7">7</label>
+
+                        <input type="radio" id="Meditation8" name="Meditation" value="90">
+                        <label for="Meditation8">8</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Meditation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many minutes did you 'EXERCISE'?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="Exercise1" name="Exercise" value="10" checked>
+                        <label for="Exercise1">10 minutes</label>
+
+                        <input type="radio" id="Exercise2" name="Exercise" value="20">
+                        <label for="Exercise2">20 minues</label>
+
+                        <input type="radio" id="Exercise3" name="Exercise" value="30">
+                        <label for="Exercise3">30 minutes</label>
+
+                        <input type="radio" id="Exercise4" name="Exercise" value="45">
+                        <label for="Exercise4">45 minute</label>
+
+                        <input type="radio" id="Exercise5" name="Exercise" value="60">
+                        <label for="Exercise5">1 hour</label>
+
+                        <input type="radio" id="Exercise6" name="Exercise" value="90">
+                        <label for="Exercise6">1.5 hours</label>
+
+                        <input type="radio" id="Exercise7" name="Exercise" value="120">
+                        <label for="Exercise7">2 hours</label>
+
+                        <input type="radio" id="Exercise8" name="Exercise" value="180">
+                        <label for="Exercise8">3 hours</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Exercise, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>What did you have for 'BREAKFAST'?</h3><br />
+                    @Html.EditorFor(model => model.Breakfast, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Breakfast, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>What did you have for 'LUNCH'?</h3><br />
+                    @Html.EditorFor(model => model.Lunch, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Lunch, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>What did you have for 'DINNER'?</h3><br />
+                    @Html.EditorFor(model => model.Dinner, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Dinner, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How'ENERGETIC' did you feel today?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Energyoutput"><span id="Energydemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Energy" value="0"
+                               class="myslider" id="EnergysliderRange">
+                        <div style="padding:10px;"><p> <span id="Energytoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Energy, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'MOTIVATED' did you feel today?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Motivationoutput"><span id="Motivationdemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Motivation" value="0"
+                               class="myslider" id="MotivationsliderRange">
+                        <div style="padding:10px;"><p> <span id="Motivationtoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Motivation, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'EMOTIONAL' did you feel today?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Emotionoutput"><span id="Emotiondemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Emotion" value="0"
+                               class="myslider" id="EmotionsliderRange">
+                        <div style="padding:10px;"><p> <span id="Emotiontoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Emotion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'PRODUCTIVE' did you feel today?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Productiveoutput"><span id="Productivedemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Productive" value="0"
+                               class="myslider" id="ProductivesliderRange">
+                        <div style="padding:10px;"><p> <span id="Productivetoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Productive, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Goal for tomorrow:</h3><br />
+                    @Html.TextAreaFor(model => model.Goal1, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 10 } })
+                    @Html.ValidationMessageFor(model => model.Goal1, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Goal for this week:</h3><br />
+                    @Html.TextAreaFor(model => model.Goal2, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 10 } })
+                    @Html.ValidationMessageFor(model => model.Goal2, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Long term goal:</h3><br />
+                    @Html.TextAreaFor(model => model.Goal3, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 10 } })
+                    @Html.ValidationMessageFor(model => model.Goal3, "", new { @class = "text-danger" })
+
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Whats your plan for tomorrow?</h3><br />
+                    @Html.TextAreaFor(model => model.PlanSummary, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 20 } })
+                    @Html.ValidationMessageFor(model => model.PlanSummary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How would you rate this day overall?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Ratingoutput"><span id="Ratingdemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Rating" value="0"
+                               class="myslider" id="RatingsliderRange">
+                        <div style="padding:10px;"><p> <span id="Ratingtoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Any extra notes?</h3><br />
+                    @Html.TextAreaFor(model => model.Notes, new { htmlAttributes = new { @class = "form-control textare", @cols = 40, @rows = 15 } })
+                    @Html.ValidationMessageFor(model => model.Notes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

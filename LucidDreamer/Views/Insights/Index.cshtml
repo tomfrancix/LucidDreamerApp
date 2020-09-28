@@ -1,0 +1,235 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<LucidDreamer.Models.User>
+
+@foreach (var item in Model)
+{
+   // if (item.AspId == User.Identity.GetUserId())
+    //{
+        <div class="container-fluid" style="background-color:white; color: black;">
+            <br />
+            <div class="row">
+                <div class="col-md-4" style="padding:10px;">
+                    <div class="insightcard">
+                        <h2>YOU HAVE SUBMITTED <BR /> <span style="font-size:250%;">@Html.DisplayFor(modelItem => item.DreamEntries)</span> <BR />DREAM LOGS!</h2>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:10px;">
+                    <div class="insightcard">
+                        <h2>YOU HAVE EARNED  <BR /><span style="font-size:250%;">@Html.DisplayFor(modelItem => item.Points)</span> <BR /> POINTS!</h2>
+                    </div>
+                </div>
+                <div class="col-md-4" style="padding:10px;">
+                    <div class="insightcard">
+                        <h2>YOU HAVE SUBMITTED  <BR /> <span style="font-size:250%;">@Html.DisplayFor(modelItem => item.DiaryEntries)</span> <BR />PERSONAL LOGS!</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4 col-md-offset-4" style="padding:20px;">
+                    <div style="width:100%;"><div style="background-image:url(../../Content/Images/profile.JPG);width:200px; height:200px; border-radius:50%;background-size:contain; margin:0 auto;"></div></div>
+                    <div style="width:100%; color:black; font-size:120%;"><h3>Your Current Goal:<br />@Html.DisplayFor(modelItem => item.MainGoal)</h3></div>
+                </div>
+            </div>
+
+            <div class="container">
+                <div class="dreamlogstats">
+                    <div class="dreamlogstats-header"><h3>DREAM LOG INSIGHTS</h3></div>
+                    <div class="innerlog">
+                        @{
+                            int number = 1;
+                            int lucid = 0;
+                            int scenes = 0;
+                            int NDirectP = 0;
+                            int NBackP = 0;
+                            int NKnownP = 0;
+                            int NFanP = 0;
+                            int NArchP = 0;
+                            int NFalseA = 0;
+                            int timeFly = 0;
+                            int timeRun = 0;
+                            int control = 0;
+                            int relate = 0;
+                            int real = 0;
+                            int yourself = 0;
+                            int colorful = 0;
+                            int recognise = 0;
+                            int past = 0;
+                            int emotion = 0;
+                            int conflict = 0;
+                            int resolution = 0;
+                            int relatedconflict = 0;
+                            int prophetic = 0;
+                            int spiritual = 0;
+                            int rating = 0;
+                            int insight = 0;
+                            int length = 0;
+                            //string[] controlarr;
+                        }
+                        @foreach (var dream in ViewBag.data)
+                        {
+                            if (dream.AspId == User.Identity.GetUserId())
+                            {
+                                number++;
+                                if (dream.Lucid == "YES")
+                                {
+                                    lucid++;
+                                }
+                                scenes += dream.NScenes;
+                                NDirectP += dream.NDirectPeople;
+                                NBackP += dream.NBackgroundPeople;
+                                NKnownP += dream.NKnownPeople;
+                                NFanP += dream.NFantasyCharacters;
+                                NArchP += dream.NArchitypicalCharacters;
+                                NFalseA += dream.NFalseAwakenings;
+                                timeFly += dream.TFly;
+                                timeRun += dream.TRun;
+                                control += Convert.ToInt32(dream.Control);
+                                relate += Convert.ToInt32(dream.Relate);
+                                real += Convert.ToInt32(dream.Real);
+                                yourself += Convert.ToInt32(dream.Yourself);
+                                colorful += Convert.ToInt32(dream.Colorful);
+                                recognise += Convert.ToInt32(dream.RecogniseSurroundings);
+                                past += Convert.ToInt32(dream.PastMemories);
+                                emotion += Convert.ToInt32(dream.Emotion);
+                                conflict += Convert.ToInt32(dream.Conflict);
+                                resolution += Convert.ToInt32(dream.Resolution);
+                                relatedconflict += Convert.ToInt32(dream.RelatedConflict);
+                                prophetic += Convert.ToInt32(dream.Prophetic);
+                                spiritual += Convert.ToInt32(dream.Spiritual);
+                                rating += Convert.ToInt32(dream.Rating);
+                                insight += Convert.ToInt32(dream.Insight);
+                                length += dream.Length;
+
+                                //controlarr += "{ x: new Dream(" + number + "), y: " + Convert.ToInt32(dream.Control) + " },";
+                                number++;
+                            }
+                        }
+                        @{
+                            int lucidp = (100 / number) * lucid;
+                            int Ascenes = scenes / number;
+                            int ANDirectP = NDirectP / number;
+                            int ANBackP = NBackP / number;
+                            int ANKnownP = NKnownP / number;
+                            int ANFanP = NFanP / number;
+                            int ANArchP = NArchP / number;
+                            int ANFalseA = NFalseA / number;
+                            int AtimeFly = timeFly / number;
+                            int AtimeRun = timeRun / number;
+                            int Acontrol = control / number;
+                            int Arelate = relate / number;
+                            int Areal = real / number;
+                            int Ayourself = yourself / number;
+                            int Acolorful = colorful / number;
+                            int Arecognise = recognise / number;
+                            int Apast = past / number;
+                            int Aemotion = emotion / number;
+                            int Aconflict = conflict / number;
+                            int Aresolution = resolution / number;
+                            int Arelatedconflict = relatedconflict / number;
+                            int Aprophetic = prophetic / number;
+                            int Aspiritual = spiritual / number;
+                            int Arating = rating / number;
+                            int Ainsight = insight / number;
+                            int Alength = length / number;
+
+                        }
+                        <div style="background-color:white;">
+                            <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+                        </div>
+                        <h1><span>@lucidp%</span> of your dreams are 'LUCID DREAMS'!</h1>
+                        <h1>You have around <span>@ANFalseA</span> false awakenings!</h1>
+                        <h1>You usually remember about <span>@Ascenes</span> 'SCENES'.</h1>
+
+                        <h1>On average you contact about <span>@ANDirectP</span> people 'DIRECTLY'.</h1>
+                        <h1>Your dreams usually have about <span>@ANBackP</span> 'BACKGROUND' people.</h1>
+                        <h1>You usually know <span>@ANKnownP</span> people.</h1>
+                        <h1>You meet around <span>@ANFanP</span> fantasy people and <span>@ANArchP</span> architypical people.</h1>
+                        <h1>You can 'FLY' in dreams on average about <span>@AtimeFly</span> seconds!</h1>
+                        <h1>You can 'RUN' in dreams on average about <span>@AtimeRun</span> seconds!</h1>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+                               // }
+                            }
+@*<script>
+    window.onload = function () {
+        var controlarr = @controlarr;
+        var chart = new CanvasJS.Chart("chartContainer", {
+            animationEnabled: true,
+            title: {
+                text: "Daily High Temperature at Different Beaches"
+            },
+            axisX: {
+                valueFormatString: "#"
+            },
+            axisY: {
+                title: "Percentage",
+                includeZero: false,
+                suffix: " %"
+            },
+            legend: {
+                cursor: "pointer",
+                fontSize: 16,
+                itemclick: toggleDataSeries
+            },
+            toolTip: {
+                shared: true
+            },
+            data: [{
+                name: "Control",
+                type: "spline",
+                yValueFormatString: "## %",
+                showInLegend: true,
+                dataPoints: [
+                    controlarr;
+                ]
+            },
+            {
+                        name: "Martha Vineyard",
+                type: "spline",
+                yValueFormatString: "## %",
+                showInLegend: true,
+                dataPoints: [
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 29 },
+                    { x: new Dream(), y: 29 },
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 30 },
+                    { x: new Dream(), y: 29 }
+                ]
+            },
+            {
+                        name: "Nantucket",
+                type: "spline",
+                yValueFormatString: "## %",
+                showInLegend: true,
+                dataPoints: [
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 29 },
+                    { x: new Dream(), y: 29 },
+                    { x: new Dream(), y: 31 },
+                    { x: new Dream(), y: 30 },
+                    { x: new Dream(), y: 29 }
+                ]
+            }]
+        });
+        chart.render();
+
+        function toggleDataSeries(e) {
+            if (typeof (e.dataSeries.visible) === "undefined" || e.dataSeries.visible) {
+                e.dataSeries.visible = false;
+            }
+            else {
+                e.dataSeries.visible = true;
+            }
+            chart.render();
+        }
+
+    }
+</script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>*@
+

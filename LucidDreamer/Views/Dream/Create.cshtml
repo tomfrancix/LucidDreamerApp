@@ -1,0 +1,622 @@
+﻿@using Microsoft.AspNet.Identity
+@model LucidDreamer.Models.DreamText
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<div class="container-fluid plain">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+           
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Summary of your dream</h3><br />
+                    @Html.TextAreaFor(model => model.Summary, new { htmlAttributes = new { @class = "form-control textarea", @cols = 40, @rows = 20 } })
+                    @Html.ValidationMessageFor(model => model.Summary, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Did you become lucid?</h3><br />
+                    <div class="radio-toolbar">
+
+                        <input type="radio" id="NO" name="Lucid" value="NO" checked>
+                        <label for="NO">No</label>
+
+                        <input type="radio" id="YES" name="Lucid" value="YES" />
+                        <label for="YES">Yes</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Lucid, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many scenes were there?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NScenesone" name="NScenes" value="1" checked>
+                        <label for="NScenesone">1</label>
+
+                        <input type="radio" id="NScenestwo" name="NScenes" value="2">
+                        <label for="NScenestwo">2</label>
+
+                        <input type="radio" id="NScenesthree" name="NScenes" value="3">
+                        <label for="NScenesthree">3</label>
+
+                        <input type="radio" id="NScenesfour" name="NScenes" value="4">
+                        <label for="NScenesfour">4</label>
+
+                        <input type="radio" id="NScenesfive" name="NScenes" value="5">
+                        <label for="NScenesfive">5</label>
+
+                        <input type="radio" id="NScenessix" name="NScenes" value="6">
+                        <label for="NScenessix">6</label>
+
+                        <input type="radio" id="NScenesseven" name="NScenes" value="7">
+                        <label for="NScenesseven">7</label>
+
+                        <input type="radio" id="NSceneseight" name="NScenes" value="8">
+                        <label for="NSceneseight">8</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NScenes, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many people did you have 'DIRECT' contact with?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NDirectPeopleone" name="NDirectPeople" value="1" checked>
+                        <label for="NDirectPeopleone">1</label>
+
+                        <input type="radio" id="NDirectPeopletwo" name="NDirectPeople" value="2">
+                        <label for="NDirectPeopletwo">2</label>
+
+                        <input type="radio" id="NDirectPeoplethree" name="NDirectPeople" value="3">
+                        <label for="NDirectPeoplethree">3</label>
+
+                        <input type="radio" id="NDirectPeoplefour" name="NDirectPeople" value="4">
+                        <label for="NDirectPeoplefour">4</label>
+
+                        <input type="radio" id="NDirectPeoplefive" name="NDirectPeople" value="5">
+                        <label for="NDirectPeoplefive">5</label>
+
+                        <input type="radio" id="NDirectPeopleten" name="NDirectPeople" value="10">
+                        <label for="NDirectPeopleten">10</label>
+
+                        <input type="radio" id="NDirectPeoplefifteen" name="NDirectPeople" value="15">
+                        <label for="NDirectPeoplefifteen">15</label>
+
+                        <input type="radio" id="NDirectPeopletwenty" name="NDirectPeople" value="20">
+                        <label for="NDirectPeopletwenty">20 +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NDirectPeople, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many 'BACKGROUND PEOPLE' were there?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NBackgroundPeopleone" name="NBackgroundPeople" value="1" checked>
+                        <label for="NBackgroundPeopleone">1</label>
+
+                        <input type="radio" id="NBackgroundPeopletwo" name="NBackgroundPeople" value="2">
+                        <label for="NBackgroundPeopletwo">2</label>
+
+                        <input type="radio" id="NBackgroundPeoplethree" name="NBackgroundPeople" value="3">
+                        <label for="NBackgroundPeoplethree">3</label>
+
+                        <input type="radio" id="NBackgroundPeoplefour" name="NBackgroundPeople" value="4">
+                        <label for="NBackgroundPeoplefour">4</label>
+
+                        <input type="radio" id="NBackgroundPeoplefive" name="NBackgroundPeople" value="5">
+                        <label for="NBackgroundPeoplefive">5</label>
+
+                        <input type="radio" id="NBackgroundPeopleten" name="NBackgroundPeople" value="10">
+                        <label for="NBackgroundPeopleten">10</label>
+
+                        <input type="radio" id="NBackgroundPeoplefifteen" name="NBackgroundPeople" value="15">
+                        <label for="NBackgroundPeoplefifteen">15</label>
+
+                        <input type="radio" id="NBackgroundPeopletwenty" name="NBackgroundPeople" value="20">
+                        <label for="NBackgroundPeopletwenty">20 +</label>
+
+                        <input type="radio" id="NBackgroundPeoplefifty" name="NBackgroundPeople" value="50">
+                        <label for="NBackgroundPeoplefifty">50 +</label>
+
+                        <input type="radio" id="NBackgroundPeoplehundred" name="NBackgroundPeople" value="100">
+                        <label for="NBackgroundPeoplehundred">100 + </label>
+
+                        <input type="radio" id="NBackgroundPeoplethousand" name="NBackgroundPeople" value="1000">
+                        <label for="NBackgroundPeoplethousand">1000 +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NBackgroundPeople, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many people did you know?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NKnownPeopleone" name="NKnownPeople" value="1" checked>
+                        <label for="NKnownPeopleone">1</label>
+
+                        <input type="radio" id="NKnownPeopletwo" name="NKnownPeople" value="2">
+                        <label for="NKnownPeopletwo">2</label>
+
+                        <input type="radio" id="NKnownPeoplethree" name="NKnownPeople" value="3">
+                        <label for="NKnownPeoplethree">3</label>
+
+                        <input type="radio" id="NKnownPeoplefour" name="NKnownPeople" value="4">
+                        <label for="NKnownPeoplefour">4</label>
+
+                        <input type="radio" id="NKnownPeoplefive" name="NKnownPeople" value="5">
+                        <label for="NKnownPeoplefive">5</label>
+
+                        <input type="radio" id="NKnownPeopleten" name="NKnownPeople" value="10">
+                        <label for="NKnownPeopleten">10</label>
+
+                        <input type="radio" id="NKnownPeoplefifteen" name="NKnownPeople" value="15">
+                        <label for="NKnownPeoplefifteen">15</label>
+
+                        <input type="radio" id="NKnownPeopletwenty" name="NKnownPeople" value="20">
+                        <label for="NKnownPeopletwenty">20 +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NKnownPeople, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many 'FANTASY CHARACTERS' were there?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NFantasyCharactersone" name="NFantasyCharacters" value="1" checked>
+                        <label for="NFantasyCharactersone">1</label>
+
+                        <input type="radio" id="NFantasyCharacterstwo" name="NFantasyCharacters" value="2">
+                        <label for="NFantasyCharacterstwo">2</label>
+
+                        <input type="radio" id="NFantasyCharactersthree" name="NFantasyCharacters" value="3">
+                        <label for="NFantasyCharactersthree">3</label>
+
+                        <input type="radio" id="NFantasyCharactersfour" name="NFantasyCharacters" value="4">
+                        <label for="NFantasyCharactersfour">4</label>
+
+                        <input type="radio" id="NFantasyCharactersfive" name="NFantasyCharacters" value="5">
+                        <label for="NFantasyCharactersfive">5</label>
+
+                        <input type="radio" id="NFantasyCharactersten" name="NFantasyCharacters" value="10">
+                        <label for="NFantasyCharactersten">10</label>
+
+                        <input type="radio" id="NFantasyCharactersfifteen" name="NFantasyCharacters" value="15">
+                        <label for="NFantasyCharactersfifteen">15</label>
+
+                        <input type="radio" id="NFantasyCharacterstwenty" name="NFantasyCharacters" value="20">
+                        <label for="NFantasyCharacterstwenty">20 +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NFantasyCharacters, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many 'ARCHITYPICAL CHARACTERS' were there?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NArchitypicalCharactersone" name="NArchitypicalCharacters" value="1" checked>
+                        <label for="NArchitypicalCharactersone">1</label>
+
+                        <input type="radio" id="NArchitypicalCharacterstwo" name="NArchitypicalCharacters" value="2">
+                        <label for="NArchitypicalCharacterstwo">2</label>
+
+                        <input type="radio" id="NArchitypicalCharactersthree" name="NArchitypicalCharacters" value="3">
+                        <label for="NArchitypicalCharactersthree">3</label>
+
+                        <input type="radio" id="NArchitypicalCharactersfour" name="NArchitypicalCharacters" value="4">
+                        <label for="NArchitypicalCharactersfour">4</label>
+
+                        <input type="radio" id="NArchitypicalCharactersfive" name="NArchitypicalCharacters" value="5">
+                        <label for="NArchitypicalCharactersfive">5</label>
+
+                        <input type="radio" id="NArchitypicalCharactersten" name="NArchitypicalCharacters" value="10">
+                        <label for="NArchitypicalCharactersten">10</label>
+
+                        <input type="radio" id="NArchitypicalCharactersfifteen" name="NArchitypicalCharacters" value="15">
+                        <label for="NArchitypicalCharactersfifteen">15</label>
+
+                        <input type="radio" id="NArchitypicalCharacterstwenty" name="NArchitypicalCharacters" value="20">
+                        <label for="NArchitypicalCharacterstwenty">20 +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NArchitypicalCharacters, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How many false awakenings did you experience?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="NFalseAwakeningsone" name="NFalseAwakenings" value="1" checked>
+                        <label for="NFalseAwakeningsone">1</label>
+
+                        <input type="radio" id="NFalseAwakeningstwo" name="NFalseAwakenings" value="2">
+                        <label for="NFalseAwakeningstwo">2</label>
+
+                        <input type="radio" id="NFalseAwakeningsthree" name="NFalseAwakenings" value="3">
+                        <label for="NFalseAwakeningsthree">3</label>
+
+                        <input type="radio" id="NFalseAwakeningsfour" name="NFalseAwakenings" value="4">
+                        <label for="NFalseAwakeningsfour">4</label>
+
+                        <input type="radio" id="NFalseAwakeningsfive" name="NFalseAwakenings" value="5">
+                        <label for="NFalseAwakeningsfive">5</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.NFalseAwakenings, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Did you 'FLY' during the dream?</h3><br />
+                    <div class="radio-toolbar">
+
+                        <input type="radio" id="FlyNO" name="Fly" value="NO" checked>
+                        <label for="FlyNO">No</label>
+
+                        <input type="radio" id="FlyYES" name="Fly" value="YES" />
+                        <label for="FlyYES">Yes</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Fly, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Did you 'RUN' during the dream?</h3><br />
+                    <div class="radio-toolbar">
+
+                        <input type="radio" id="RunNO" name="Run" value="NO" checked>
+                        <label for="RunNO">No</label>
+
+                        <input type="radio" id="RunYES" name="Run" value="YES" />
+                        <label for="RunYES">Yes</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Run, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How much time did you spend 'FLYING'?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="TFly1" name="TFly" value="1" checked>
+                        <label for="TFly1">1s +</label>
+
+                        <input type="radio" id="TFly2" name="TFly" value="2">
+                        <label for="TFly2">2s +</label>
+
+                        <input type="radio" id="TFly3" name="TFly" value="3">
+                        <label for="TFly3">3s +</label>
+
+                        <input type="radio" id="TFly4" name="TFly" value="4">
+                        <label for="TFly4">4s +</label>
+
+                        <input type="radio" id="TFly5" name="TFly" value="5">
+                        <label for="TFly5">5s +</label>
+
+                        <input type="radio" id="TFly6" name="TFly" value="10">
+                        <label for="TFly6">10s +</label>
+
+                        <input type="radio" id="TFly7" name="TFly" value="20">
+                        <label for="TFly7">20s +</label>
+
+                        <input type="radio" id="TFly8" name="TFly" value="30">
+                        <label for="TFly8">30s +</label>
+
+                        <input type="radio" id="TFly9" name="TFly" value="60">
+                        <label for="TFly9">1 Minute +</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TFly, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How much time did you spend 'RUNNING'?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="TRun1" name="TRun" value="1" checked>
+                        <label for="TRun1">1s +</label>
+
+                        <input type="radio" id="TRun2" name="TRun" value="2">
+                        <label for="TRun2">2s +</label>
+
+                        <input type="radio" id="TRun3" name="TRun" value="3">
+                        <label for="TRun3">3s +</label>
+
+                        <input type="radio" id="TRun4" name="TRun" value="4">
+                        <label for="TRun4">4s +</label>
+
+                        <input type="radio" id="TRun5" name="TRun" value="5">
+                        <label for="TRun5">5s +</label>
+
+                        <input type="radio" id="TRun6" name="TRun" value="10">
+                        <label for="TRun6">10s +</label>
+
+                        <input type="radio" id="TRun7" name="TRun" value="20">
+                        <label for="TRun7">20s +</label>
+
+                        <input type="radio" id="TRun8" name="TRun" value="30">
+                        <label for="TRun8">30s +</label>
+
+                        <input type="radio" id="TRun9" name="TRun" value="60">
+                        <label for="TRun9">1 Minute +</label>
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.TRun, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree did you feel 'IN CONTROL' of the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output1"><span id="demo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Control" value="0"
+                               class="myslider" id="sliderRange">
+                        <div style="padding:10px;"><p> <span id="toolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Control, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree did your dream 'RELATE TO NORMAL LIFE'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output129"><span id="demo2"></span>%</p>
+                        <input type="range" min="0" max="100" name="Relate" value="0"
+                               class="myslider" id="sliderRange2">
+                        <div style="padding:10px;"><p> <span id="toolt2"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Relate, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree did the dream feel 'REAL'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output139"><span id="demo3"></span>%</p>
+                        <input type="range" min="0" max="100" name="Real" value="0"
+                               class="myslider" id="sliderRange3">
+                        <div style="padding:10px;"><p> <span id="toolt3"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Real, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree did you feel 'YOURSELF'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Yourselfoutput"><span id="Yourselfdemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Yourself" value="0"
+                               class="myslider" id="YourselfsliderRange">
+                        <div style="padding:10px;"><p> <span id="Yourselftoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Yourself, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'COLORFUL' was the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output159"><span id="demo5"></span>%</p>
+                        <input type="range" min="0" max="100" name="Colorful" value="0"
+                               class="myslider" id="sliderRange5">
+                        <div style="padding:10px;"><p> <span id="toolt5"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Colorful, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How well did you 'RECOGNISE YOUR SURROUNDINGS'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output16"><span id="demo6"></span>%</p>
+                        <input type="range" min="0" max="100" name="RecogniseSurroundings" value="0"
+                               class="myslider" id="sliderRange6">
+                        <div style="padding:10px;"><p> <span id="toolt6"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.RecogniseSurroundings, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree were 'PAST MEMORIES' exhibited in the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output17"><span id="demo7"></span>%</p>
+                        <input type="range" min="0" max="100" name="PastMemories" value="0"
+                               class="myslider" id="sliderRange7">
+                        <div style="padding:10px;"><p> <span id="toolt7"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.PastMemories, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'EMOTIONAL' was the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output189"><span id="demo89"></span>%</p>
+                        <input type="range" min="0" max="100" name="Emotion" value="0"
+                               class="myslider" id="sliderRange89">
+                        <div style="padding:10px;"><p> <span id="toolt89"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Emotion, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what degree did you experience 'CONFLICT' in the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output19"><span id="demo9"></span>%</p>
+                        <input type="range" min="0" max="100" name="Conflict" value="0"
+                               class="myslider" id="sliderRange9">
+                        <div style="padding:10px;"><p> <span id="toolt9"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Conflict, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what extent did you experience 'RESOLUTION' in the dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output110"><span id="demo10"></span>%</p>
+                        <input type="range" min="0" max="100" name="Resolution" value="0"
+                               class="myslider" id="sliderRange10">
+                        <div style="padding:10px;"><p> <span id="toolt10"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Resolution, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what extent was this conflict associated with 'CONFLICT IN YOUR LIFE'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output111"><span id="demo11"></span>%</p>
+                        <input type="range" min="0" max="100" name="RelatedConflict" value="0"
+                               class="myslider" id="sliderRange11">
+                        <div style="padding:10px;"><p> <span id="toolt11"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.RelatedConflict, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>To what extent did the dream feel 'PROPHETIC'?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output112"><span id="demo12"></span>%</p>
+                        <input type="range" min="0" max="100" name="Prophetic" value="0"
+                               class="myslider" id="sliderRange12">
+                        <div style="padding:10px;"><p> <span id="toolt12"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Prophetic, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'SPIRITUAL' did this dream feel?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Spiritualoutput"><span id="Spiritualdemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Spiritual" value="0"
+                               class="myslider" id="SpiritualsliderRange">
+                        <div style="padding:10px;"><p> <span id="Spiritualtoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Spiritual, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How 'INSIGHTFUL' was this dream?</h3><br />
+                    <div class="rangeslider">
+                        <p id="Insightoutput"><span id="Insightdemo"></span>%</p>
+                        <input type="range" min="0" max="100" name="Insight" value="0"
+                               class="myslider" id="InsightsliderRange">
+                        <div style="padding:10px;"><p> <span id="Insighttoolt"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Insight, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How long did the dream feel?</h3><br />
+                    <div class="radio-toolbar">
+                        <input type="radio" id="Length1" name="Length" value="1" checked>
+                        <label for="Length1">1m +</label>
+
+                        <input type="radio" id="Length2" name="Length" value="2">
+                        <label for="Length2">2m +</label>
+
+                        <input type="radio" id="Length3" name="Length" value="4">
+                        <label for="Length3">4m +</label>
+
+                        <input type="radio" id="Length4" name="Length" value="6">
+                        <label for="Length4">6m +</label>
+
+                        <input type="radio" id="Length5" name="Length" value="10">
+                        <label for="Length5">10m +</label>
+
+                        <input type="radio" id="Length6" name="Length" value="30">
+                        <label for="Length6">30m +</label>
+
+                        <input type="radio" id="Length7" name="Length" value="45">
+                        <label for="Length7">45m +</label>
+
+                        <input type="radio" id="Length8" name="Length" value="60">
+                        <label for="Length8">60m +</label>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Length, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>How would you 'RATE THIS DREAM' overall?</h3><br />
+                    <div class="rangeslider">
+                        <p id="output1159"><span id="demo1509"></span>%</p>
+                        <input type="range" min="0" max="100" name="Rating" value="0"
+                               class="myslider" id="sliderRange15">
+                        <div style="padding:10px;"><p> <span id="toolt15"></span></p></div>
+                    </div>
+                    @Html.ValidationMessageFor(model => model.Rating, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <br /><h3>Provide a 'DETAILED DESCRIPTION' of the entire experience:</h3><br />
+                    @Html.TextAreaFor(model => model.DetailedText, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.DetailedText, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-12">
+                    <input type="submit" value="Create" class="btn btn-infox" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+</div>

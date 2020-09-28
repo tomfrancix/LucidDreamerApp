@@ -1,0 +1,74 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<main>
+    <div class="background-bed">
+        <div style="padding:30px;background-color:transparent">
+            <div class="jumbotron jumbotron-custom">
+                <h1>S<sup>&</sup>W<sub> INSIGHTS</sub></h1>
+                <p class="lead">S<sup>&</sup>W<sub> INSIGHTS</sub> is a free web application for recording and analysing dream expeiences with a special focus on lucid dreaming instruction.</p>
+                <div class="container"><p><a href="https://asp.net" class="btn btn-infox">Learn more &raquo;</a></p></div>
+            </div>
+        </div>
+
+
+    </div>
+</main>
+<footer>
+    <p>&copy; @DateTime.Now.Year - S<sup>&</sup>W<sub> INSIGHTS</sub> By Thomas Fahey</p>
+</footer>
+<script>
+    var rangeslider15 = document.getElementById("sliderRange15");
+    var output150 = document.getElementById("demo150");
+    var output115 = document.getElementById("output115");
+    var tooltip15 = document.getElementById("toolt15")
+    output15.innerHTML = rangeslider15.value;
+
+    rangeslider15.oninput = function () {
+        output150.innerHTML = this.value;
+        tooltip15.innerHTML = "";
+        if (rangeslider15.value <= 10) {
+
+            tooltip15.innerHTML = "Not at all";
+            tooltip15.style.color = 'red';
+            output150.style.color = 'red';
+            output115.style.color = 'red';
+
+        } else if (rangeslider15.value <= 25) {
+
+            tooltip15.innerHTML = "Slightly...";
+            tooltip15.style.color = 'orange';
+            output150.style.color = 'orange';
+            output115.style.color = 'orange';
+
+        } else if (rangeslider15.value <= 50) {
+
+            tooltip15.innerHTML = "Fairly!";
+            tooltip15.style.color = 'yellow';
+            output150.style.color = 'yellow';
+            output115.style.color = 'yellow';
+
+        } else if (rangeslider15.value <= 80) {
+
+            tooltip15.innerHTML = "Quite a lot...";
+            tooltip15.style.color = 'yellow';
+            output150.style.color = 'yellow';
+            output115.style.color = 'yellow';
+
+        } else if (rangeslider15.value <= 90) {
+
+            tooltip15.innerHTML = "Very much so!";
+            tooltip15.style.color = 'deepskyblue';
+            output150.style.color = 'deepskyblue';
+            output115.style.color = 'deepskyblue';
+
+        } else if (rangeslider15.value <= 100) {
+
+            tooltip15.innerHTML = "Completely";
+            tooltip15.style.color = 'chartreuse';
+            output150.style.color = 'chartreuse';
+            output115.style.color = 'chartreuse';
+        }
+    }
+
+</script>

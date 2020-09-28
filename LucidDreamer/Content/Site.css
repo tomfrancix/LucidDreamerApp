@@ -1,0 +1,521 @@
+﻿body {
+    padding-top: 40px;
+    font-family: 'Open Sans Light';
+    height: 100vh;
+    text-align: center;
+}
+    
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding:0;
+    background-color:white;
+    height:100%;
+}
+.disable {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+}
+
+.code-string {
+    color: #ec7600
+}
+
+.code-cbracket {
+    font-weight: bold
+}
+
+.code-number {
+    color: #ffcd22
+}
+.error {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    color: #f00;
+    padding: 5px;
+    max-width: 50%;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.2);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: deepskyblue;
+}
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: chartreuse;
+    }
+.background-bed {
+    width:100%;
+    height:90vh;
+    background-image:url("Images/bed2g.jpg");
+    background-size:cover;
+    background-position-y:bottom;
+    background-repeat:no-repeat;
+}
+.navbar {
+    margin:0;
+}
+.navbar-brand {
+    margin:0;
+    padding:0;
+    padding-top:20px;
+    margin-bottom:-30px;
+    color:black;
+    width:150px;
+    height:60px;
+    /*background-image:url(Images/logo.png);
+    background-size:contain;
+    background-repeat:no-repeat;*/
+
+}
+.blah {
+    width: 100%;
+    height: auto;
+    min-height: 80vh;
+    background-image: url("Images/photo-1502134249126-9f3755a50d78.jpg");
+    background-size: cover;
+    background-position-y: bottom;
+    background-repeat: no-repeat;
+}
+.panel-default {
+    padding: 20px;
+}
+.navbar-inverse {
+    color: black;
+    padding:0;
+    background-color: rgba(255, 236, 193, 1);
+}
+    .navbar-inverse .navbar-nav li a {
+        color: black;
+    }
+ .navbar-nav a {
+     color:black;
+     letter-spacing:2px;
+     margin:0;
+ }
+.navbar-inverse .navbar-nav li a:hover {
+    color: chartreuse;
+}
+.navbar-inverse .navbar-nav li {
+    background-color: rgba(219, 165, 107, 0.3);
+    margin: 5px;
+    color:black;
+    padding: 0;
+    border: 1px solid rgba(200,200,200,0.1);
+}
+footer {
+    height:30px;
+    text-align:center;
+    color:rgba(255,255,255,0.5);
+    padding:18px;
+}
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-family: 'summer_fontlight';
+    font-weight: 100;
+    letter-spacing: 3px;
+    font-style: normal;
+    font-size: 40px;
+    margin: 2px;
+    background-color: BLACK;
+}
+.navbar-inverse .navbar-brand:hover {
+    color:blue;
+}
+h1 {
+    font-family: 'summer_fontlight';
+    font-weight: 100;
+    font-style: normal;
+    letter-spacing: 5px;
+}
+.panel-dark {
+    background-color: rgba(0,10,0,0.9);
+    color: white;
+}
+.jumbotron {background-color:transparent;}
+.jumbotron-custom {
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(0,0,0,0.7), rgba(0,0,0,0));
+    padding: 40px;
+    color: white;
+    text-align: center;
+}
+.btn.btn-infox {
+    background-color: rgba(255,69,0,0.2);
+    color: white;
+    width: 45%;
+    transition: width 0.2s, background-color 0.2s;
+    transition-timing-function: ease-in-out;
+}
+    .btn.btn-infox:hover {
+        background-color: rgba(255,69,0,1);
+        width: 100%;
+    }
+.admin {
+    margin: 0 auto;
+    padding-left: 30px;
+    padding-right: 30px;
+    background-color: white;
+    min-height: 100vh;
+}
+.form-group h2 {
+    font-size: 130%;
+    font-weight: bold;
+    color: deeppink;
+    margin-top: 10px;
+}
+.form-group p {
+    margin: 0px;
+    padding: 0;
+    color: chartreuse;
+}
+.panel {
+    padding: 20px;
+}
+.form-group {
+    width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+    font-size: 120%;
+    text-align: center;
+}
+.panel-dark h1 {
+    font-size: 500%;
+    letter-spacing: 20px;
+}
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+.dreamrecord {
+    height: auto;
+    max-height: 500px;
+    position: relative;
+    padding-bottom: 20px;
+    border-radius: 10px;
+}
+.detailbox {
+    height: auto;
+    min-height:500px;
+    position:static;
+    padding-bottom:20px;
+}
+
+.textdetailbox {
+    height: auto;
+    max-height: 100%;
+    position: static;
+    background-image: url(Images/white-textured-paper_53876-86282.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+    .form-group input {
+        width: 100%;
+        padding: 5px;
+        font-size: 120%;
+        border-radius: 2px;
+        color: black;
+    }
+
+        .form-group input.button {
+            color: white;
+        }
+
+    .form-group textarea {
+        width: 100%;
+        height: 220px;
+        font-size: 120%;
+        border-radius: 2px;
+        padding: 10px;
+        color: black;
+    }
+h3 {
+    font-family: 'summer_fontlight';
+    font-weight: 600;
+    font-size: 200%;
+    letter-spacing: 5px;
+}
+.form-control {
+    text-align:center;
+    margin:0 auto;
+
+}
+
+
+    .form-horizontal .control-label {
+        text-align: center;
+        float: none;
+    }
+.plain {
+    /*background-image: url(Images/flowers.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;*/
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+    padding:0;
+}
+.plainspace {
+    /*background-image: url(Images/forest.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-repeat: repeat-y;*/
+    padding: 0;
+    height: calc(100vh - 60px);
+    overflow-y: scroll;
+}
+form .form-horizontal .form-group h3 {
+    color:white;
+    font-size:120%;
+}
+
+
+textarea {
+    width:100%;
+    max-width:60%;
+}
+.buttonbox {
+    padding:20px;
+    background-color:rgba(0,0,30,0.8);
+    text-align:center;
+    color:white;
+}
+.form-group {
+    /*background-image: linear-gradient(to right, rgba(224, 195, 128, 0.2), rgba(0,0,0,1), rgba(224, 195, 128, 0.2));*/
+    background-image:url(Images/yellow-vintage-wrinkled-paper-background.jpg);
+    background-size:cover; 
+    background-repeat:no-repeat;
+    background-position-y:bottom;
+    float: none;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.3);
+    width: 60%;
+}
+.form-horizontal .form-group {
+    margin: 0 auto;
+    margin-top: 20px;
+}
+input #Lucid {
+    width:100%;
+}
+.form-group input {
+    text-align:center;
+}
+.radio-toolbar {
+    margin: 10px;
+}
+
+    .radio-toolbar input[type="radio"] {
+        opacity: 0;
+        position: fixed;
+        width: 20px;
+    }
+
+    .radio-toolbar label {
+        display: inline-block;
+        background-color: #ddd;
+        padding: 10px 20px;
+        font-family: sans-serif, Arial;
+        font-size: 16px;
+        border: 2px solid #444;
+        border-radius: 4px;
+    }
+
+        .radio-toolbar label:hover {
+            background-color: #dfd;
+        }
+
+    .radio-toolbar input[type="radio"]:focus + label {
+        border: 2px dashed #444;
+    }
+
+    .radio-toolbar input[type="radio"]:checked + label {
+        background-color: #bfb;
+        border-color: #4c4;
+    }
+.rangeslider {
+    width: 100%;
+    height:80px;
+}
+.myslider {
+    -webkit-appearance: none;
+    background: rgba(0,100,200,0.4);
+    width: 100%;
+    height: 20px;
+    opacity: 2;
+}
+.rangeslider input {
+    max-width:1500px;
+}
+    .myslider:hover {
+        opacity: 1;
+    }
+    .measurement {
+        background-color:orangered;
+        height:5px;
+        border-radius:3px;
+        
+    }
+    .dreamindex tr {
+        padding:3px;
+    }
+    .dreamindex tr td {
+        width:50%;
+    }
+    .labeltext {
+        text-align:right;
+        padding-right:10px;
+    }
+    .panel-body.q {
+        padding:0;
+    }
+.btn.q {
+    margin: 0;
+    margin-top: 10px;
+    width: 100%;
+    margin-bottom: 20px;
+    box-sizing:border-box;
+    position:relative;
+}
+.buttons {
+    position: static;
+    bottom: 0;
+    right: 0;
+}
+.titlepage {
+    width: 100%;
+    height: auto;
+    /*background-image: linear-gradient(to right, rgba(0,0,255,0), rgba(0,0,0,0.5), rgba(0,0,255,0));*/
+    padding: 5px;
+}
+.titlepage h1 {
+    color:white;
+    text-align:left;
+
+
+}
+.btn.btn-infonew {
+    background-color:orangered;
+    color:white;
+    position:absolute;
+    top:26px;
+    right:20px;
+}
+.goal-table {
+    padding:0px;
+    height:auto;
+    min-height:500px;
+}
+    .goal-table table tr {
+        padding:20px;
+    }
+    .goal-table table tr td {
+        margin-top: 10px;
+        padding: 10px;
+        padding-bottom: 20px;
+    }
+.labeltexta {
+    font-weight:bold;
+    color:chartreuse;
+}
+.jumbotron-about {
+    background-image: url(Images/yellow-vintage-wrinkled-paper-background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+.linkcard {
+    height:250px;
+    width:100%;
+    padding:0;
+    margin:0;
+
+}
+.linkcardtext {
+    padding: 10px;
+    background-color: rgba(128,34,0,1);
+    color:white;
+    font-size:130%;
+}
+.linkcard1 {
+    background-image:url(Images/photo-1447069387593-a5de0862481e.jpg);
+    background-size:cover;
+    background-repeat:no-repeat;
+}
+.linkcard2 {
+    background-image: url(Images/photo-1447438972698-474ef5651bb5.jpg);
+    background-size: cover;
+    background-position-y:center;
+    background-repeat: no-repeat;
+}
+.linkcard3 {
+    background-image: url(Images/photo-1522657732287-211e69b4788c.jpg);
+    background-size: cover;
+    background-position-y: center;
+    background-repeat: no-repeat;
+}
+.linkcard4 {
+    background-image: url(Images/photo-1519998823760-5f7b0549b378.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.insightcard {
+    padding: 20px;
+    background-color: rgba(128,34,0,0.2);
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 10px;
+}
+.dreamlogstats {
+    width: 100%;
+    padding:0;
+    background-color: black;
+    border: 1px solid rgba(255,255,255,0.4);
+    border-left: 2px solid rgba(255,255,255,0.8);
+    border-right: 2px solid rgba(255,255,255,0.8);
+    border-radius:20px;
+}
+.dreamlogstats-header {
+    margin:0;
+    padding:20px;
+    border-radius:20px 20px 0 0;
+    background-color:orangered;
+    color:black;
+}
+.innerlog {
+    padding:20px;
+    margin:0;
+    color:white;
+}
+.innerlog h1 {
+    color:white;
+}
+.innerlog h1 span {
+    color:deepskyblue;
+    font-size:150%;
+}

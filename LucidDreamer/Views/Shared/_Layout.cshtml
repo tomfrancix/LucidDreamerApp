@@ -1,0 +1,1210 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/webfontkit-20200228-041836/specimen_files/specimen_stylesheet.css" type="text/css" charset="utf-8" />
+    <link rel="stylesheet" href="~/Content/webfontkit-20200228-041836/stylesheet.css" type="text/css" charset="utf-8" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <script src="~/Content/canvasjs.min.js"></script>
+    <script src="~/Content/canvasjs.react.js"></script>
+    <script src="~/Content/jquery.canvasjs.min.js"></script>
+    <script>
+        $(document).ready(function () {
+
+            const $valueSpan = $('.valueSpan');
+            const $value = $('#slider11');
+            $valueSpan.html($value.val());
+            $value.on('input change', () => {
+
+                $valueSpan.html($value.val());
+            });
+        });
+    </script>
+
+</head>
+<body style="background-color:black;">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="padding:0;">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <div class="navbar-brand">INSIGHTIA</div>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav" style="margin:0;">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    <li>@Html.ActionLink("Dream Log", "Index", "Dream")</li>
+                    <li>@Html.ActionLink("Personal Log", "Index", "Diaries")</li>
+                    <li>@Html.ActionLink("Insights", "Index", "Insights")</li>
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid body-content">
+
+        @RenderBody()
+
+       
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
+    <script src="~/Content/ripples.js"></script>
+    @*<script>
+            $(document).ready(function () {
+                try {
+                    $('.background-bed').ripples({
+                        resolution: 600,
+                        dropRadius: 600, //px
+                        perturbance: 0.05,
+                    });
+                    $('.plainspace').ripples({
+                        resolution: 600,
+                        dropRadius: 600, //px
+                        perturbance: 0.05,
+                        interactive: false
+                    });
+
+                }
+                catch (e) {
+                    $('.error').show().text(e);
+                }
+
+                $('.js-ripples-disable').on('click', function () {
+                    $('body, main').ripples('destroy');
+                    $(this).hide();
+                });
+
+                $('.js-ripples-play').on('click', function () {
+                    $('body, main').ripples('play');
+                });
+
+                $('.js-ripples-pause').on('click', function () {
+                    $('body, main').ripples('pause');
+                });
+
+                // Automatic drops
+                setInterval(function () {
+                    var $el = $('.plainspace');
+                    var x = Math.random() * $el.outerWidth();
+                    var y = Math.random() * $el.outerHeight();
+                    var dropRadius = 100;
+                    var strength = 0.04 + Math.random() * 0.04;
+
+                    $el.ripples('drop', x, y, dropRadius, strength);
+                }, 400);
+                setInterval(function () {
+                    var $el = $('.background-bed');
+                    var x = Math.random() * $el.outerWidth();
+                    var y = Math.random() * $el.outerHeight();
+                    var dropRadius = 10;
+                    var strength = 0.04 + Math.random() * 0.04;
+
+                    $el.ripples('drop', x, y, dropRadius, strength);
+                }, 10000);
+            });
+        </script>*@
+    <script>
+        var Ratingrangeslider = document.getElementById("RatingsliderRange");
+        var Ratingoutput = document.getElementById("Ratingdemo");
+        var Ratingoutput1 = document.getElementById("Ratingoutput");
+        var Ratingtooltip = document.getElementById("Ratingtoolt");
+        Ratingoutput.innerHTML = Ratingrangeslider.value;
+
+        Ratingrangeslider.oninput = function () {
+            Ratingoutput.innerHTML = this.value;
+            Ratingtooltip.innerHTML = "";
+            if (Ratingrangeslider.value <= 10) {
+
+                Ratingtooltip.innerHTML = "Not great.";
+                Ratingtooltip.style.color = 'red';
+                Ratingoutput.style.color = 'red';
+                Ratingoutput1.style.color = 'red';
+
+            } else if (Ratingrangeslider.value <= 25) {
+
+                Ratingtooltip.innerHTML = "Could be better...";
+                Ratingtooltip.style.color = 'orange';
+                Ratingoutput.style.color = 'orange';
+                Ratingoutput1.style.color = 'orange';
+
+            } else if (Ratingrangeslider.value <= 50) {
+
+                Ratingtooltip.innerHTML = "It was alright!";
+                Ratingtooltip.style.color = 'yellow';
+                Ratingoutput.style.color = 'yellow';
+                Ratingoutput1.style.color = 'yellow';
+
+            } else if (Ratingrangeslider.value <= 80) {
+
+                Ratingtooltip.innerHTML = "Nice day!";
+                Ratingtooltip.style.color = 'yellow';
+                Ratingoutput.style.color = 'yellow';
+                Ratingoutput1.style.color = 'yellow';
+
+            } else if (Ratingrangeslider.value <= 90) {
+
+                Ratingtooltip.innerHTML = "Really Good day!";
+                Ratingtooltip.style.color = 'deepskyblue';
+                Ratingoutput.style.color = 'deepskyblue';
+                Ratingoutput1.style.color = 'deepskyblue';
+
+            } else if (Ratingrangeslider.value <= 100) {
+
+                Ratingtooltip.innerHTML = "Best day ever...";
+                Ratingtooltip.style.color = 'chartreuse';
+                Ratingoutput.style.color = 'chartreuse';
+                Ratingoutput1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var Productiverangeslider = document.getElementById("ProductivesliderRange");
+        var Productiveoutput = document.getElementById("Productivedemo");
+        var Productiveoutput1 = document.getElementById("Productiveoutput");
+        var Productivetooltip = document.getElementById("Productivetoolt");
+        Productiveoutput.innerHTML = Productiverangeslider.value;
+
+        Productiverangeslider.oninput = function () {
+            Productiveoutput.innerHTML = this.value;
+            Productivetooltip.innerHTML = "";
+            if (Productiverangeslider.value <= 10) {
+
+                Productivetooltip.innerHTML = "Not at all";
+                Productivetooltip.style.color = 'red';
+                Productiveoutput.style.color = 'red';
+                Productiveoutput1.style.color = 'red';
+
+            } else if (Productiverangeslider.value <= 25) {
+
+                Productivetooltip.innerHTML = "Slightly...";
+                Productivetooltip.style.color = 'orange';
+                Productiveoutput.style.color = 'orange';
+                Productiveoutput1.style.color = 'orange';
+
+            } else if (Productiverangeslider.value <= 50) {
+
+                Productivetooltip.innerHTML = "Fairly!";
+                Productivetooltip.style.color = 'yellow';
+                Productiveoutput.style.color = 'yellow';
+                Productiveoutput1.style.color = 'yellow';
+
+            } else if (Productiverangeslider.value <= 80) {
+
+                Productivetooltip.innerHTML = "Quite a lot...";
+                Productivetooltip.style.color = 'yellow';
+                Productiveoutput.style.color = 'yellow';
+                Productiveoutput1.style.color = 'yellow';
+
+            } else if (Productiverangeslider.value <= 90) {
+
+                Productivetooltip.innerHTML = "Very much so!";
+                Productivetooltip.style.color = 'deepskyblue';
+                Productiveoutput.style.color = 'deepskyblue';
+                Productiveoutput1.style.color = 'deepskyblue';
+
+            } else if (Productiverangeslider.value <= 100) {
+
+                Productivetooltip.innerHTML = "Completely";
+                Productivetooltip.style.color = 'chartreuse';
+                Productiveoutput.style.color = 'chartreuse';
+                Productiveoutput1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var Emotionrangeslider = document.getElementById("EmotionsliderRange");
+        var Emotionoutput = document.getElementById("Emotiondemo");
+        var Emotionoutput1 = document.getElementById("Emotionoutput");
+        var Emotiontooltip = document.getElementById("Emotiontoolt");
+        Emotionoutput.innerHTML = Emotionrangeslider.value;
+
+        Emotionrangeslider.oninput = function () {
+            Emotionoutput.innerHTML = this.value;
+            Emotiontooltip.innerHTML = "";
+            if (Emotionrangeslider.value <= 10) {
+
+                Emotiontooltip.innerHTML = "Not at all";
+                Emotiontooltip.style.color = 'red';
+                Emotionoutput.style.color = 'red';
+                Emotionoutput1.style.color = 'red';
+
+            } else if (Emotionrangeslider.value <= 25) {
+
+                Emotiontooltip.innerHTML = "Slightly...";
+                Emotiontooltip.style.color = 'orange';
+                Emotionoutput.style.color = 'orange';
+                Emotionoutput1.style.color = 'orange';
+
+            } else if (Emotionrangeslider.value <= 50) {
+
+                Emotiontooltip.innerHTML = "Fairly!";
+                Emotiontooltip.style.color = 'yellow';
+                Emotionoutput.style.color = 'yellow';
+                Emotionoutput1.style.color = 'yellow';
+
+            } else if (Emotionrangeslider.value <= 80) {
+
+                Emotiontooltip.innerHTML = "Quite a lot...";
+                Emotiontooltip.style.color = 'yellow';
+                Emotionoutput.style.color = 'yellow';
+                Emotionoutput1.style.color = 'yellow';
+
+            } else if (Emotionrangeslider.value <= 90) {
+
+                Emotiontooltip.innerHTML = "Very much so!";
+                Emotiontooltip.style.color = 'deepskyblue';
+                Emotionoutput.style.color = 'deepskyblue';
+                Emotionoutput1.style.color = 'deepskyblue';
+
+            } else if (Emotionrangeslider.value <= 100) {
+
+                Emotiontooltip.innerHTML = "Completely";
+                Emotiontooltip.style.color = 'chartreuse';
+                Emotionoutput.style.color = 'chartreuse';
+                Emotionoutput1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var Motivationrangeslider = document.getElementById("MotivationsliderRange");
+        var Motivationoutput = document.getElementById("Motivationdemo");
+        var Motivationoutput1 = document.getElementById("Motivationoutput");
+        var Motivationtooltip = document.getElementById("Motivationtoolt");
+        Motivationoutput.innerHTML = Motivationrangeslider.value;
+
+        Motivationrangeslider.oninput = function () {
+            Motivationoutput.innerHTML = this.value;
+            Motivationtooltip.innerHTML = "";
+            if (Motivationrangeslider.value <= 10) {
+
+                Motivationtooltip.innerHTML = "Not at all";
+                Motivationtooltip.style.color = 'red';
+                Motivationoutput.style.color = 'red';
+                Motivationoutput1.style.color = 'red';
+
+            } else if (Motivationrangeslider.value <= 25) {
+
+                Motivationtooltip.innerHTML = "Slightly...";
+                Motivationtooltip.style.color = 'orange';
+                Motivation.style.color = 'orange';
+                Motivationoutput1.style.color = 'orange';
+
+            } else if (Motivationrangeslider.value <= 50) {
+
+                Motivationtooltip.innerHTML = "Fairly!";
+                Motivationtooltip.innerHTML = "Fairly!";
+                Motivationtooltip.style.color = 'yellow';
+                Motivationoutput.style.color = 'yellow';
+                Motivationoutput1.style.color = 'yellow';
+
+            } else if (Motivationrangeslider.value <= 80) {
+
+                Motivationtooltip.innerHTML = "Quite a lot...";
+                Motivationtooltip.style.color = 'yellow';
+                Motivationoutput.style.color = 'yellow';
+                Motivationoutput1.style.color = 'yellow';
+
+            } else if (Motivationrangeslider.value <= 90) {
+
+                Motivationtooltip.innerHTML = "Very much so!";
+                Motivationtooltip.style.color = 'deepskyblue';
+                Motivationoutput.style.color = 'deepskyblue';
+                Motivationoutput1.style.color = 'deepskyblue';
+
+            } else if (Motivationrangeslider.value <= 100) {
+
+                Motivationtooltip.innerHTML = "Completely";
+                Motivationtooltip.style.color = 'chartreuse';
+                Motivationoutput.style.color = 'chartreuse';
+                Motivationoutput1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider = document.getElementById("sliderRange");
+        var output = document.getElementById("demo");
+        var output1 = document.getElementById("output1");
+        var tooltip = document.getElementById("toolt")
+        output.innerHTML = rangeslider.value;
+
+        rangeslider.oninput = function () {
+            output.innerHTML = this.value;
+            tooltip.innerHTML = "";
+
+        var Energyrangeslider = document.getElementById("EnergysliderRange");
+        var Energyoutput = document.getElementById("Energydemo");
+        var Energyoutput1 = document.getElementById("Energyoutput");
+            var Energytooltip = document.getElementById("Energytoolt");
+        Energyoutput.innerHTML = Energyrangeslider.value;
+
+        Energyrangeslider.oninput = function () {
+            Energyoutput.innerHTML = this.value;
+            Energytooltip.innerHTML = "";
+            if (Energyrangeslider.value <= 10) {
+
+                Energytooltip.innerHTML = "Not at all";
+                Energytooltip.style.color = 'red';
+                Energyoutput.style.color = 'red';
+                Energyoutput1.style.color = 'red';
+
+            } else if (Energyrangeslider.value <= 25) {
+
+                Energytooltip.innerHTML = "Slightly...";
+                Energytooltip.style.color = 'orange';
+                Energyoutput.style.color = 'orange';
+                Energyoutput1.style.color = 'orange';
+
+            } else if (Energyrangeslider.value <= 50) {
+
+                Energytooltip.innerHTML = "Fairly!";
+                Energytooltip.style.color = 'yellow';
+                Energyoutput.style.color = 'yellow';
+                Energyoutput1.style.color = 'yellow';
+
+            } else if (Energyrangeslider.value <= 80) {
+
+                Energytooltip.innerHTML = "Quite a lot...";
+                Energytooltip.style.color = 'yellow';
+                Energyoutput.style.color = 'yellow';
+                Energyoutput1.style.color = 'yellow';
+
+            } else if (Energyrangeslider.value <= 90) {
+
+                Energytooltip.innerHTML = "Very much so!";
+                Energytooltip.style.color = 'deepskyblue';
+                Energyoutput.style.color = 'deepskyblue';
+                Energyoutput1.style.color = 'deepskyblue';
+
+            } else if (Energyrangeslider.value <= 100) {
+
+                Energytooltip.innerHTML = "Completely";
+                Energytooltip.style.color = 'chartreuse';
+                Energyoutput.style.color = 'chartreuse';
+                Energyoutput1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider = document.getElementById("sliderRange");
+        var output = document.getElementById("demo");
+        var output1 = document.getElementById("output1");
+            var tooltip = document.getElementById("toolt");
+        output.innerHTML = rangeslider.value;
+
+        rangeslider.oninput = function () {
+            output.innerHTML = this.value;
+            tooltip.innerHTML = "";
+            if (rangeslider.value <= 10) {
+
+                tooltip.innerHTML = "Not at all";
+                tooltip.style.color = 'red';
+                output.style.color = 'red';
+                output1.style.color = 'red';
+
+            } else if (rangeslider.value <= 25) {
+
+                tooltip.innerHTML = "Slightly...";
+                tooltip.style.color = 'orange';
+                output.style.color = 'orange';
+                output1.style.color = 'orange';
+
+            } else if (rangeslider.value <= 50) {
+
+                tooltip.innerHTML = "Fairly!";
+                tooltip.style.color = 'yellow';
+                output.style.color = 'yellow';
+                output1.style.color = 'yellow';
+
+            } else if (rangeslider.value <= 80) {
+
+                tooltip.innerHTML = "Quite a lot...";
+                tooltip.style.color = 'yellow';
+                output.style.color = 'yellow';
+                output1.style.color = 'yellow';
+
+            } else if (rangeslider.value <= 90) {
+
+                tooltip.innerHTML = "Very much so!";
+                tooltip.style.color = 'deepskyblue';
+                output.style.color = 'deepskyblue';
+                output1.style.color = 'deepskyblue';
+
+            } else if (rangeslider.value <= 100) {
+
+                tooltip.innerHTML = "Completely";
+                tooltip.style.color = 'chartreuse';
+                output.style.color = 'chartreuse';
+                output1.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider2 = document.getElementById("sliderRange2");
+        var output2 = document.getElementById("demo2");
+        var output129 = document.getElementById("output129");
+            var tooltip2 = document.getElementById("toolt2");
+        output2.innerHTML = rangeslider2.value;
+
+        rangeslider2.oninput = function () {
+            output2.innerHTML = this.value;
+            tooltip2.innerHTML = "";
+            if (rangeslider2.value <= 10) {
+
+                tooltip2.innerHTML = "Not at all";
+                tooltip2.style.color = 'red';
+                output2.style.color = 'red';
+                output129.style.color = 'red';
+
+            } else if (rangeslider2.value <= 25) {
+
+                tooltip2.innerHTML = "Slightly...";
+                tooltip2.style.color = 'orange';
+                output2.style.color = 'orange';
+                output129.style.color = 'orange';
+
+            } else if (rangeslider2.value <= 50) {
+
+                tooltip2.innerHTML = "Fairly!";
+                tooltip2.style.color = 'yellow';
+                output2.style.color = 'yellow';
+                output129.style.color = 'yellow';
+
+            } else if (rangeslider2.value <= 80) {
+
+                tooltip2.innerHTML = "Quite a lot...";
+                tooltip2.style.color = 'yellow';
+                output2.style.color = 'yellow';
+                output129.style.color = 'yellow';
+
+            } else if (rangeslider2.value <= 90) {
+
+                tooltip2.innerHTML = "Very much so!";
+                tooltip2.style.color = 'deepskyblue';
+                output2.style.color = 'deepskyblue';
+                output129.style.color = 'deepskyblue';
+
+            } else if (rangeslider2.value <= 100) {
+
+                tooltip2.innerHTML = "Completely";
+                tooltip2.style.color = 'chartreuse';
+                output2.style.color = 'chartreuse';
+                output129.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider3 = document.getElementById("sliderRange3");
+        var output3 = document.getElementById("demo3");
+        var output139 = document.getElementById("output139");
+            var tooltip3 = document.getElementById("toolt3");
+        output3.innerHTML = rangeslider3.value;
+
+        rangeslider3.oninput = function () {
+            output3.innerHTML = this.value;
+            tooltip3.innerHTML = "";
+            if (rangeslider3.value <= 10) {
+
+                tooltip3.innerHTML = "Not at all";
+                tooltip3.style.color = 'red';
+                output3.style.color = 'red';
+                output139.style.color = 'red';
+
+            } else if (rangeslider3.value <= 25) {
+
+                tooltip3.innerHTML = "Slightly...";
+                tooltip3.style.color = 'orange';
+                output3.style.color = 'orange';
+                output139.style.color = 'orange';
+
+            } else if (rangeslider3.value <= 50) {
+
+                tooltip3.innerHTML = "Fairly!";
+                tooltip3.style.color = 'yellow';
+                output3.style.color = 'yellow';
+                output139.style.color = 'yellow';
+
+            } else if (rangeslider3.value <= 80) {
+
+                tooltip3.innerHTML = "Quite a lot...";
+                tooltip3.style.color = 'yellow';
+                output3.style.color = 'yellow';
+                output139.style.color = 'yellow';
+
+            } else if (rangeslider3.value <= 90) {
+
+                tooltip3.innerHTML = "Very much so!";
+                tooltip3.style.color = 'deepskyblue';
+                output3.style.color = 'deepskyblue';
+                output139.style.color = 'deepskyblue';
+
+            } else if (rangeslider3.value <= 100) {
+
+                tooltip3.innerHTML = "Completely";
+                tooltip3.style.color = 'chartreuse';
+                output3.style.color = 'chartreuse';
+                output139.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+            var Yourselfrangeslider = document.getElementById("YourselfsliderRange");
+            var Yourselfdemo = document.getElementById("Yourselfdemo");
+            var Yourselfoutput = document.getElementById("Yourselfoutput");
+            var Yourselftooltip = document.getElementById("Yourselftoolt");
+            Yourselfdemo.innerHTML = Yourselfrangeslider.value;
+
+            Yourselfrangeslider.oninput = function () {
+                Yourselfdemo.innerHTML = this.value;
+                Yourselftooltip.innerHTML = "";
+                if (Yourselfrangeslider.value <= 10) {
+
+                    Yourselftooltip.innerHTML = "Not at all";
+                    Yourselftooltip.style.color = 'red';
+                    Yourselfdemo.style.color = 'red';
+                    Yourselfoutput.style.color = 'red';
+
+                } else if (Yourselfrangeslider.value <= 25) {
+
+                    Yourselftooltip.innerHTML = "Slightly...";
+                    Yourselftooltip.style.color = 'orange';
+                    Yourselfdemo.style.color = 'orange';
+                    Yourselfoutput.style.color = 'orange';
+
+                } else if (Yourselfrangeslider.value <= 50) {
+
+                    Yourselftooltip.innerHTML = "Fairly!";
+                    Yourselftooltip.style.color = 'yellow';
+                    Yourselfdemo.style.color = 'yellow';
+                    Yourselfoutput.style.color = 'yellow';
+
+                } else if (Yourselfrangeslider.value <= 80) {
+
+                    Yourselftooltip.innerHTML = "Quite a lot...";
+                    Yourselftooltip.style.color = 'yellow';
+                    Yourselfdemo.style.color = 'yellow';
+                    Yourselfoutput.style.color = 'yellow';
+
+                } else if (Yourselfrangeslider.value <= 90) {
+
+                    Yourselftooltip.innerHTML = "Very much so!";
+                    Yourselftooltip.style.color = 'deepskyblue';
+                    Yourselfdemo.style.color = 'deepskyblue';
+                    Yourselfoutput.style.color = 'deepskyblue';
+
+                } else if (Yourselfrangeslider.value <= 100) {
+
+                    Yourselftooltip.innerHTML = "Completely";
+                    Yourselftooltip.style.color = 'chartreuse';
+                    Yourselfdemo.style.color = 'chartreuse';
+                    Yourselfoutput.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider5 = document.getElementById("sliderRange5");
+        var output5 = document.getElementById("demo5");
+        var output159 = document.getElementById("output159");
+            var tooltip5 = document.getElementById("toolt5");
+        output5.innerHTML = rangeslider5.value;
+
+        rangeslider5.oninput = function () {
+            output5.innerHTML = this.value;
+            tooltip5.innerHTML = "";
+            if (rangeslider5.value <= 10) {
+
+                tooltip5.innerHTML = "Not at all";
+                tooltip5.style.color = 'red';
+                output5.style.color = 'red';
+                output159.style.color = 'red';
+
+            } else if (rangeslider5.value <= 25) {
+
+                tooltip5.innerHTML = "Slightly...";
+                tooltip5.style.color = 'orange';
+                output5.style.color = 'orange';
+                output159.style.color = 'orange';
+
+            } else if (rangeslider5.value <= 50) {
+
+                tooltip5.innerHTML = "Fairly!";
+                tooltip5.style.color = 'yellow';
+                output5.style.color = 'yellow';
+                output159.style.color = 'yellow';
+
+            } else if (rangeslider5.value <= 80) {
+
+                tooltip5.innerHTML = "Quite a lot...";
+                tooltip5.style.color = 'yellow';
+                output5.style.color = 'yellow';
+                output159.style.color = 'yellow';
+
+            } else if (rangeslider5.value <= 90) {
+
+                tooltip5.innerHTML = "Very much so!";
+                tooltip5.style.color = 'deepskyblue';
+                output5.style.color = 'deepskyblue';
+                output159.style.color = 'deepskyblue';
+
+            } else if (rangeslider5.value <= 100) {
+
+                tooltip5.innerHTML = "Completely";
+                tooltip5.style.color = 'chartreuse';
+                output5.style.color = 'chartreuse';
+                output159.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider6 = document.getElementById("sliderRange6");
+        var output6 = document.getElementById("demo6");
+        var output16 = document.getElementById("output16");
+            var tooltip6 = document.getElementById("toolt6");
+        output6.innerHTML = rangeslider6.value;
+
+        rangeslider6.oninput = function () {
+            output6.innerHTML = this.value;
+            tooltip6.innerHTML = "";
+            if (rangeslider6.value <= 10) {
+
+                tooltip6.innerHTML = "Not at all";
+                tooltip6.style.color = 'red';
+                output6.style.color = 'red';
+                output16.style.color = 'red';
+
+            } else if (rangeslider6.value <= 25) {
+
+                tooltip6.innerHTML = "Slightly...";
+                tooltip6.style.color = 'orange';
+                output6.style.color = 'orange';
+                output16.style.color = 'orange';
+
+            } else if (rangeslider6.value <= 50) {
+
+                tooltip6.innerHTML = "Fairly!";
+                tooltip6.style.color = 'yellow';
+                output6.style.color = 'yellow';
+                output16.style.color = 'yellow';
+
+            } else if (rangeslider6.value <= 80) {
+
+                tooltip6.innerHTML = "Quite a lot...";
+                tooltip6.style.color = 'yellow';
+                output6.style.color = 'yellow';
+                output16.style.color = 'yellow';
+
+            } else if (rangeslider6.value <= 90) {
+
+                tooltip6.innerHTML = "Very much so!";
+                tooltip6.style.color = 'deepskyblue';
+                output6.style.color = 'deepskyblue';
+                output16.style.color = 'deepskyblue';
+
+            } else if (rangeslider6.value <= 100) {
+
+                tooltip6.innerHTML = "Completely";
+                tooltip6.style.color = 'chartreuse';
+                output6.style.color = 'chartreuse';
+                output16.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider7 = document.getElementById("sliderRange7");
+        var output7 = document.getElementById("demo7");
+        var output17 = document.getElementById("output17");
+            var tooltip7 = document.getElementById("toolt7");
+        output7.innerHTML = rangeslider7.value;
+
+        rangeslider7.oninput = function () {
+            output7.innerHTML = this.value;
+            tooltip7.innerHTML = "";
+            if (rangeslider7.value <= 10) {
+
+                tooltip7.innerHTML = "Not at all";
+                tooltip7.style.color = 'red';
+                output7.style.color = 'red';
+                output17.style.color = 'red';
+
+            } else if (rangeslider7.value <= 25) {
+
+                tooltip7.innerHTML = "Slightly...";
+                tooltip7.style.color = 'orange';
+                output7.style.color = 'orange';
+                output17.style.color = 'orange';
+
+            } else if (rangeslider7.value <= 50) {
+
+                tooltip7.innerHTML = "Fairly!";
+                tooltip7.style.color = 'yellow';
+                output7.style.color = 'yellow';
+                output17.style.color = 'yellow';
+
+            } else if (rangeslider7.value <= 80) {
+
+                tooltip7.innerHTML = "Quite a lot...";
+                tooltip7.style.color = 'yellow';
+                output7.style.color = 'yellow';
+                output17.style.color = 'yellow';
+
+            } else if (rangeslider7.value <= 90) {
+
+                tooltip7.innerHTML = "Very much so!";
+                tooltip7.style.color = 'deepskyblue';
+                output7.style.color = 'deepskyblue';
+                output17.style.color = 'deepskyblue';
+
+            } else if (rangeslider7.value <= 100) {
+
+                tooltip7.innerHTML = "Completely";
+                tooltip7.style.color = 'chartreuse';
+                output7.style.color = 'chartreuse';
+                output17.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider8 = document.getElementById("sliderRange89");
+        var output8 = document.getElementById("demo89");
+        var output189 = document.getElementById("output189");
+            var tooltip8 = document.getElementById("toolt89");
+        output8.innerHTML = rangeslider8.value;
+
+        rangeslider8.oninput = function () {
+            output8.innerHTML = this.value;
+            tooltip8.innerHTML = "";
+            if (rangeslider8.value <= 10) {
+
+                tooltip8.innerHTML = "Not at all";
+                tooltip8.style.color = 'red';
+                output8.style.color = 'red';
+                output189.style.color = 'red';
+
+            } else if (rangeslider8.value <= 25) {
+
+                tooltip8.innerHTML = "Slightly...";
+                tooltip8.style.color = 'orange';
+                output8.style.color = 'orange';
+                output189.style.color = 'orange';
+
+            } else if (rangeslider8.value <= 50) {
+
+                tooltip8.innerHTML = "Fairly!";
+                tooltip8.style.color = 'yellow';
+                output8.style.color = 'yellow';
+                output189.style.color = 'yellow';
+
+            } else if (rangeslider8.value <= 80) {
+
+                tooltip8.innerHTML = "Quite a lot...";
+                tooltip8.style.color = 'yellow';
+                output8.style.color = 'yellow';
+                output189.style.color = 'yellow';
+
+            } else if (rangeslider8.value <= 90) {
+
+                tooltip8.innerHTML = "Very much so!";
+                tooltip8.style.color = 'deepskyblue';
+                output8.style.color = 'deepskyblue';
+                output189.style.color = 'deepskyblue';
+
+            } else if (rangeslider8.value <= 100) {
+
+                tooltip8.innerHTML = "Completely";
+                tooltip8.style.color = 'chartreuse';
+                output8.style.color = 'chartreuse';
+                output189.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider9 = document.getElementById("sliderRange9");
+        var output9 = document.getElementById("demo9");
+        var output19 = document.getElementById("output19");
+            var tooltip9 = document.getElementById("toolt9");
+        output9.innerHTML = rangeslider9.value;
+
+        rangeslider9.oninput = function () {
+            output9.innerHTML = this.value;
+            tooltip9.innerHTML = "";
+            if (rangeslider9.value <= 10) {
+
+                tooltip9.innerHTML = "Not at all";
+                tooltip9.style.color = 'red';
+                output9.style.color = 'red';
+                output19.style.color = 'red';
+
+            } else if (rangeslider9.value <= 25) {
+
+                tooltip9.innerHTML = "Slightly...";
+                tooltip9.style.color = 'orange';
+                output9.style.color = 'orange';
+                output19.style.color = 'orange';
+
+            } else if (rangeslider9.value <= 50) {
+
+                tooltip9.innerHTML = "Fairly!";
+                tooltip9.style.color = 'yellow';
+                output9.style.color = 'yellow';
+                output19.style.color = 'yellow';
+
+            } else if (rangeslider9.value <= 80) {
+
+                tooltip9.innerHTML = "Quite a lot...";
+                tooltip9.style.color = 'yellow';
+                output9.style.color = 'yellow';
+                output19.style.color = 'yellow';
+
+            } else if (rangeslider9.value <= 90) {
+
+                tooltip9.innerHTML = "Very much so!";
+                tooltip9.style.color = 'deepskyblue';
+                output9.style.color = 'deepskyblue';
+                output19.style.color = 'deepskyblue';
+
+            } else if (rangeslider9.value <= 100) {
+
+                tooltip9.innerHTML = "Completely";
+                tooltip9.style.color = 'chartreuse';
+                output9.style.color = 'chartreuse';
+                output19.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider10 = document.getElementById("sliderRange10");
+        var output10 = document.getElementById("demo10");
+        var output110 = document.getElementById("output110");
+            var tooltip10 = document.getElementById("toolt10");
+        output10.innerHTML = rangeslider10.value;
+
+        rangeslider10.oninput = function () {
+            output10.innerHTML = this.value;
+            tooltip10.innerHTML = "";
+            if (rangeslider10.value <= 10) {
+
+                tooltip10.innerHTML = "Not at all";
+                tooltip10.style.color = 'red';
+                output10.style.color = 'red';
+                output110.style.color = 'red';
+
+            } else if (rangeslider10.value <= 25) {
+
+                tooltip10.innerHTML = "Slightly...";
+                tooltip10.style.color = 'orange';
+                output10.style.color = 'orange';
+                output110.style.color = 'orange';
+
+            } else if (rangeslider10.value <= 50) {
+
+                tooltip10.innerHTML = "Fairly!";
+                tooltip10.style.color = 'yellow';
+                output10.style.color = 'yellow';
+                output110.style.color = 'yellow';
+
+            } else if (rangeslider10.value <= 80) {
+
+                tooltip10.innerHTML = "Quite a lot...";
+                tooltip10.style.color = 'yellow';
+                output10.style.color = 'yellow';
+                output110.style.color = 'yellow';
+
+            } else if (rangeslider10.value <= 90) {
+
+                tooltip10.innerHTML = "Very much so!";
+                tooltip10.style.color = 'deepskyblue';
+                output10.style.color = 'deepskyblue';
+                output110.style.color = 'deepskyblue';
+
+            } else if (rangeslider10.value <= 100) {
+
+                tooltip10.innerHTML = "Completely";
+                tooltip10.style.color = 'chartreuse';
+                output10.style.color = 'chartreuse';
+                output110.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider11 = document.getElementById("sliderRange11");
+        var output11 = document.getElementById("demo11");
+        var output111 = document.getElementById("output111");
+            var tooltip11 = document.getElementById("toolt11");
+        output11.innerHTML = rangeslider11.value;
+
+        rangeslider11.oninput = function () {
+            output11.innerHTML = this.value;
+            tooltip11.innerHTML = "";
+            if (rangeslider11.value <= 10) {
+
+                tooltip11.innerHTML = "Not at all";
+                tooltip11.style.color = 'red';
+                output11.style.color = 'red';
+                output111.style.color = 'red';
+
+            } else if (rangeslider11.value <= 25) {
+
+                tooltip11.innerHTML = "Slightly...";
+                tooltip11.style.color = 'orange';
+                output11.style.color = 'orange';
+                output111.style.color = 'orange';
+
+            } else if (rangeslider11.value <= 50) {
+
+                tooltip11.innerHTML = "Fairly!";
+                tooltip11.style.color = 'yellow';
+                output11.style.color = 'yellow';
+                output111.style.color = 'yellow';
+
+            } else if (rangeslider11.value <= 80) {
+
+                tooltip11.innerHTML = "Quite a lot...";
+                tooltip11.style.color = 'yellow';
+                output11.style.color = 'yellow';
+                output111.style.color = 'yellow';
+
+            } else if (rangeslider11.value <= 90) {
+
+                tooltip11.innerHTML = "Very much so!";
+                tooltip11.style.color = 'deepskyblue';
+                output11.style.color = 'deepskyblue';
+                output111.style.color = 'deepskyblue';
+
+            } else if (rangeslider11.value <= 100) {
+
+                tooltip11.innerHTML = "Completely";
+                tooltip11.style.color = 'chartreuse';
+                output11.style.color = 'chartreuse';
+                output111.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider12 = document.getElementById("sliderRange12");
+        var output12 = document.getElementById("demo12");
+        var output112 = document.getElementById("output112");
+            var tooltip12 = document.getElementById("toolt12");
+        output12.innerHTML = rangeslider12.value;
+
+        rangeslider12.oninput = function () {
+            output12.innerHTML = this.value;
+            tooltip12.innerHTML = "";
+            if (rangeslider12.value <= 10) {
+
+                tooltip12.innerHTML = "Not at all";
+                tooltip12.style.color = 'red';
+                output12.style.color = 'red';
+                output112.style.color = 'red';
+
+            } else if (rangeslider12.value <= 25) {
+
+                tooltip12.innerHTML = "Slightly...";
+                tooltip12.style.color = 'orange';
+                output12.style.color = 'orange';
+                output112.style.color = 'orange';
+
+            } else if (rangeslider12.value <= 50) {
+
+                tooltip12.innerHTML = "Fairly!";
+                tooltip12.style.color = 'yellow';
+                output12.style.color = 'yellow';
+                output112.style.color = 'yellow';
+
+            } else if (rangeslider12.value <= 80) {
+
+                tooltip12.innerHTML = "Quite a lot...";
+                tooltip12.style.color = 'yellow';
+                output12.style.color = 'yellow';
+                output112.style.color = 'yellow';
+
+            } else if (rangeslider12.value <= 90) {
+
+                tooltip12.innerHTML = "Very much so!";
+                tooltip12.style.color = 'deepskyblue';
+                output12.style.color = 'deepskyblue';
+                output112.style.color = 'deepskyblue';
+
+            } else if (rangeslider12.value <= 100) {
+
+                tooltip12.innerHTML = "Completely";
+                tooltip12.style.color = 'chartreuse';
+                output12.style.color = 'chartreuse';
+                output112.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+            var Spiritualrangeslider = document.getElementById("SpiritualsliderRange");
+            var Spiritualdemo = document.getElementById("Spiritualdemo");
+            var Spiritualoutput = document.getElementById("Spiritualoutput");
+            var Spiritualtooltip = document.getElementById("Spiritualtoolt");
+            Spiritualdemo.innerHTML = Spiritualrangeslider.value;
+
+            Spiritualrangeslider.oninput = function () {
+                Spiritualdemo.innerHTML = this.value;
+                Spiritualtooltip.innerHTML = "";
+                if (Spiritualrangeslider.value <= 10) {
+
+                    Spiritualtooltip.innerHTML = "Not at all";
+                    Spiritualtooltip.style.color = 'red';
+                    Spiritualdemo.style.color = 'red';
+                    Spiritualoutput.style.color = 'red';
+                
+                } else if (Spiritualrangeslider.value <= 25) {
+
+                    Spiritualtooltip.innerHTML = "Slightly...";
+                    Spiritualtooltip.style.color = 'orange';
+                    Spiritualdemo.style.color = 'orange';
+                    Spiritualoutput.style.color = 'orange';
+
+                } else if (Spiritualrangeslider.value <= 50) {
+
+                    Spiritualtooltip.innerHTML = "Fairly!";
+                    Spiritualtooltip.style.color = 'yellow';
+                    Spiritualdemo.style.color = 'yellow';
+                    Spiritualoutput.style.color = 'yellow';
+
+                } else if (Spiritualrangeslider.value <= 80) {
+
+                    Spiritualtooltip.innerHTML = "Quite a lot...";
+                    Spiritualtooltip.style.color = 'yellow';
+                    Spiritualdemo.style.color = 'yellow';
+                    Spiritualoutput.style.color = 'yellow';
+
+                } else if (Spiritualrangeslider.value <= 90) {
+
+                    Spiritualtooltip.innerHTML = "Very much so!";
+                    Spiritualtooltip.style.color = 'deepskyblue';
+                    Spiritualdemo.style.color = 'deepskyblue';
+                    Spiritualoutput.style.color = 'deepskyblue';
+
+                } else if (Spiritualrangeslider.value <= 100) {
+
+                    Spiritualtooltip.innerHTML = "Completely";
+                    Spiritualtooltip.style.color = 'chartreuse';
+                    Spiritualdemo.style.color = 'chartreuse';
+                    Spiritualoutput.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+            var Insightrangeslider = document.getElementById("InsightsliderRange");
+            var Insightdemo = document.getElementById("Insightdemo");
+            var Insightoutput = document.getElementById("Insightoutput");
+            var Insighttooltip = document.getElementById("Insighttoolt");
+            Insightdemo.innerHTML = Insightrangeslider.value;
+
+            Insightrangeslider.oninput = function () {
+                Insightdemo.innerHTML = this.value;
+                Insighttooltip.innerHTML = "";
+                if (Insightrangeslider.value <= 10) {
+
+                    Insighttooltip.innerHTML = "Not at all";
+                    Insighttooltip.style.color = 'red';
+                    Insightdemo.style.color = 'red';
+                    Insightoutput.style.color = 'red';
+
+                } else if (Insightrangeslider.value <= 25) {
+
+                    Insighttooltip.innerHTML = "Slightly...";
+                    Insighttooltip.style.color = 'orange';
+                    Insightdemo.style.color = 'orange';
+                    Insightoutput.style.color = 'orange';
+
+                } else if (Insightrangeslider.value <= 50) {
+
+                    Insighttooltip.innerHTML = "Fairly!";
+                    Insighttooltip.style.color = 'yellow';
+                    Insightdemo.style.color = 'yellow';
+                    Insightoutput.style.color = 'yellow';
+
+                } else if (Insightrangeslider.value <= 80) {
+
+                    Insighttooltip.innerHTML = "Quite a lot...";
+                    Insighttooltip.style.color = 'yellow';
+                    Insightdemo.style.color = 'yellow';
+                    Insightoutput.style.color = 'yellow';
+
+                } else if (Insightrangeslider.value <= 90) {
+
+                    Insighttooltip.innerHTML = "Very much so!";
+                    Insighttooltip.style.color = 'deepskyblue';
+                    Insightdemo.style.color = 'deepskyblue';
+                    Insightoutput.style.color = 'deepskyblue';
+
+                } else if (Insightrangeslider.value <= 100) {
+
+                    Insighttooltip.innerHTML = "Completely";
+                    Insighttooltip.style.color = 'chartreuse';
+                    Insightdemo.style.color = 'chartreuse';
+                    Insightoutput.style.color = 'chartreuse';
+            }
+        }
+    </script>
+    <script>
+        var rangeslider15 = document.getElementById("sliderRange15");
+        var output1509 = document.getElementById("demo1509");
+        var output1159 = document.getElementById("output1159");
+            var tooltip15 = document.getElementById("toolt15");
+        output1509.innerHTML = rangeslider15.value;
+
+        rangeslider15.oninput = function () {
+            output1509.innerHTML = this.value;
+            tooltip15.innerHTML = "";
+            if (rangeslider15.value <= 10) {
+
+                tooltip15.innerHTML = "Not at all";
+                tooltip15.style.color = 'red';
+                output1509.style.color = 'red';
+                output1159.style.color = 'red';
+
+            } else if (rangeslider15.value <= 25) {
+
+                tooltip15.innerHTML = "Slightly...";
+                tooltip15.style.color = 'orange';
+                output1509.style.color = 'orange';
+                output1159.style.color = 'orange';
+
+            } else if (rangeslider15.value <= 50) {
+
+                tooltip15.innerHTML = "Fairly!";
+                tooltip15.style.color = 'yellow';
+                output1509.style.color = 'yellow';
+                output1159.style.color = 'yellow';
+
+            } else if (rangeslider15.value <= 80) {
+
+                tooltip15.innerHTML = "Quite a lot...";
+                tooltip15.style.color = 'yellow';
+                output1509.style.color = 'yellow';
+                output1159.style.color = 'yellow';
+
+            } else if (rangeslider15.value <= 90) {
+
+                tooltip15.innerHTML = "Very much so!";
+                tooltip15.style.color = 'deepskyblue';
+                output1509.style.color = 'deepskyblue';
+                output1159.style.color = 'deepskyblue';
+
+            } else if (rangeslider15.value <= 100) {
+
+                tooltip15.innerHTML = "Completely";
+                tooltip15.style.color = 'chartreuse';
+                output1509.style.color = 'chartreuse';
+                output1159.style.color = 'chartreuse';
+            }
+        }
+    </script>
+</body>
+</html>

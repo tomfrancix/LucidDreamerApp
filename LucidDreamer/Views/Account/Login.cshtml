@@ -1,0 +1,90 @@
+﻿@using LucidDreamer.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+    <div class="container-fluid"  style="min-height:100vh;">
+        <div class="panel panel-dark" style="background-color:rgba(0,0,0,0.1);border:none;">
+            <div class="row" style="text-align:center;">
+
+                <div class="col-md-12">
+                    <br />
+                    <h1>LOGIN</h1>
+
+                </div>
+            </div>
+            <div class="row" style="text-align:center;">
+
+                <div class="col-md-4 col-md-offset-4">
+                    <br />
+                    <div class="panel panel-dark">
+                        <section id="loginForm" style="text-align:center; width:100%;">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                <div class="col-md-12">
+                                    <div class="form-group" style="width:100%; margin:0;">
+                                        <h3>EMAIL</h3><br />
+                                        <div class="row">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })<br />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group" style="width:100%; margin:0;">
+                                        <h3>PASSWORD</h3><br />
+                                        <div class="row" style="text-align:center;">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })<br />
+                                        </div>
+                                    </div>
+                                </div><br />
+                                <div class="col-md-8 col-md-offset-2">
+                                    <div class="form-group" style="width:100%; margin:0;">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <div class="checkbox">
+                                                <div> @Html.CheckBoxFor(m => m.RememberMe) </div>
+                                                <h3>REMEMBER ME?</h3><br />
+                                            </div>
+                                        </div>
+                                    </div><br />
+                                </div>
+                                <div class="form-group" style="width:100%; margin:0;">
+
+                                    <input type="submit" value="Log in" class="btn btn-infox" />
+
+                                </div><br />
+                                <div style="background-color:white;">
+                                    <p>
+                                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                                    </p>
+                                </div>
+
+                                @*<div style="background-color:transparent; padding:3px;z-index:50;position:relative;width:256px;margin:0 auto;overflow:hidden;">
+                                        <div style="background-color:black;z-index:100;padding:10px;padding-top:15px;width:250px;position:relative;margin:0 auto;"><p>
+                                        @Html.ActionLink("Register as a new user", "Register")
+                                    </p></div><div class="spin"></div></div>*@
+
+                                //Enable this once you have account confirmation enabled for password reset functionality
+
+                            }
+                        </section>
+
+                    </div>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+<br />
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

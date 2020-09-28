@@ -1,0 +1,134 @@
+﻿@using Microsoft.AspNet.Identity
+@model IEnumerable<LucidDreamer.Models.Diary>
+
+
+<div class="container-fluid plainspace">
+  
+        <div class="row" style="position:fixed;width:100%;margin:0 auto;  padding-top:0;margin-top:10px; z-index:500;background-color:black;">
+            <div class="col-md-12" style="height:70px;position:relative;">
+
+
+                <div class="titlepage">
+                    <h1>PERSONAL LOG</h1>
+                </div>
+                <a href="Dream/Create">
+                    <br />
+                    <div class="btn btn-infonew" style="margin:0 auto;">
+                        NEW SUBMISSION
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="container-fluid" style="margin-top:100px;">
+            @foreach (var item in Model.Reverse())
+            {
+               // if (item.AspId == User.Identity.GetUserId())
+               // {
+
+                    <div class="panel dreamrecord" style="background-color:rgba(0,0,0,0.9); overflow:hidden; color:white;padding:0;padding-left:20px; border:1px solid rgba(255,255,255,0.4);">
+                        <div class="row">
+                            <div class="col-md-2 detailbox" style="color:white;padding:10px; padding-right:10px;">
+                                <div class="panel-heading"><h4>Date: @item.Date.ToString("MMM dd yyy H:mm:ss")</h4></div>
+                                <table class="dreamindex">
+
+                                    <tr>
+                                        <td class="labeltext">Sleep:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Sleep) hours</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Woke up at:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.MorningTime) 0' Clock</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Slept at:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.BedTime) 0' Clock</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Meditated:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Meditation) minutes</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Exercised:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Exercise) minutes</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Breakfast:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Breakfast)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Lunch:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Lunch)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Dinner:</td>
+                                        <td>@Html.DisplayFor(modelItem => item.Dinner)</td>
+                                    </tr>
+
+                                    <tr>
+                                        <td class="labeltext">Energy:</td>
+                                        <td style="padding-right:5px;position:relative"><div class="measurement" style="width:calc(@Html.DisplayFor(modelItem => item.Energy)%)"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Motivation:</td>
+                                        <td style="padding-right:5px;"><div class="measurement" style="width:calc(@Html.DisplayFor(modelItem => item.Motivation)%)"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Emotion:</td>
+                                        <td style="padding-right:5px;"><div class="measurement" style="width:calc(@Html.DisplayFor(modelItem => item.Emotion)%)"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Productivity:</td>
+                                        <td style="padding-right:5px;"><div class="measurement" style="width:calc(@Html.DisplayFor(modelItem => item.Productive)%)"></div></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltext">Rating:</td>
+                                        <td style="padding-right:5px;"><div class="measurement" style="width:calc(@Html.DisplayFor(modelItem => item.Rating)%)"></div></td>
+                                    </tr>
+                                </table>
+                                <div class="buttons">
+                                    <div class="row">
+                                        <div class="col-md-4">@Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-info q" })</div>
+                                        <div class="col-md-4">@Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-warning q" })</div>
+                                        <div class="col-md-4">@Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-danger q", onclick = "return confirm('Are sure wants to delete?');" })</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 textdetailbox" style="color:black;padding:10px;min-height:500px;">
+                                <div style="color:black;padding:10px;height:100%;overflow-y:scroll;">
+                                    <div class="panel-body">
+                                        <h4>SUMMARY</h4>
+                                        <p>"@Html.DisplayFor(modelItem => item.Summary)"</p><br />
+                                        <h4>PLAN</h4>
+                                        <p> @Html.DisplayFor(modelItem => item.PlanSummary)</p><br />
+                                        <h4>NOTES</h4>
+                                        <p>@Html.DisplayFor(modelItem => item.Notes) </p>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-4 goal-table">
+                                <table>
+                                    <tr>
+                                        <td class="labeltexta">Goal #1:</td>
+                                        <td style="padding:20px; padding-right:40px;"> @Html.DisplayFor(modelItem => item.Goal1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltexta">Goal #2:</td>
+                                        <td style="padding:20px; padding-right:40px;"> @Html.DisplayFor(modelItem => item.Goal1)</td>
+                                    </tr>
+                                    <tr>
+                                        <td class="labeltexta">Goal #3:</td>
+                                        <td style="padding:20px; padding-right:40px;"> @Html.DisplayFor(modelItem => item.Goal1)</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+               // }
+
+            }
+        </div>
+ 
+</div>

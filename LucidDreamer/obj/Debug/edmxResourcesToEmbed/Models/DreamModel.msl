@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="LucidDreamerStoreContainer" CdmEntityContainer="LucidDreamerEntities">
+    <EntitySetMapping Name="Diaries">
+      <EntityTypeMapping TypeName="LucidDreamer.Diary">
+        <MappingFragment StoreEntitySet="Diary">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AspId" ColumnName="AspId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Sleep" ColumnName="Sleep" />
+          <ScalarProperty Name="MorningTime" ColumnName="MorningTime" />
+          <ScalarProperty Name="BedTime" ColumnName="BedTime" />
+          <ScalarProperty Name="Meditation" ColumnName="Meditation" />
+          <ScalarProperty Name="Exercise" ColumnName="Exercise" />
+          <ScalarProperty Name="Breakfast" ColumnName="Breakfast" />
+          <ScalarProperty Name="Lunch" ColumnName="Lunch" />
+          <ScalarProperty Name="Dinner" ColumnName="Dinner" />
+          <ScalarProperty Name="Energy" ColumnName="Energy" />
+          <ScalarProperty Name="Motivation" ColumnName="Motivation" />
+          <ScalarProperty Name="Emotion" ColumnName="Emotion" />
+          <ScalarProperty Name="Productive" ColumnName="Productive" />
+          <ScalarProperty Name="Goal1" ColumnName="Goal1" />
+          <ScalarProperty Name="Goal2" ColumnName="Goal2" />
+          <ScalarProperty Name="Goal3" ColumnName="Goal3" />
+          <ScalarProperty Name="PlanSummary" ColumnName="PlanSummary" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Notes" ColumnName="Notes" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DreamTexts">
+      <EntityTypeMapping TypeName="LucidDreamer.DreamText">
+        <MappingFragment StoreEntitySet="DreamText">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AspId" ColumnName="AspId" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Summary" ColumnName="Summary" />
+          <ScalarProperty Name="Lucid" ColumnName="Lucid" />
+          <ScalarProperty Name="NScenes" ColumnName="NScenes" />
+          <ScalarProperty Name="NDirectPeople" ColumnName="NDirectPeople" />
+          <ScalarProperty Name="NBackgroundPeople" ColumnName="NBackgroundPeople" />
+          <ScalarProperty Name="NKnownPeople" ColumnName="NKnownPeople" />
+          <ScalarProperty Name="NFantasyCharacters" ColumnName="NFantasyCharacters" />
+          <ScalarProperty Name="NArchitypicalCharacters" ColumnName="NArchitypicalCharacters" />
+          <ScalarProperty Name="NFalseAwakenings" ColumnName="NFalseAwakenings" />
+          <ScalarProperty Name="Fly" ColumnName="Fly" />
+          <ScalarProperty Name="Run" ColumnName="Run" />
+          <ScalarProperty Name="TFly" ColumnName="TFly" />
+          <ScalarProperty Name="TRun" ColumnName="TRun" />
+          <ScalarProperty Name="Control" ColumnName="Control" />
+          <ScalarProperty Name="Relate" ColumnName="Relate" />
+          <ScalarProperty Name="Real" ColumnName="Real" />
+          <ScalarProperty Name="Yourself" ColumnName="Yourself" />
+          <ScalarProperty Name="Colorful" ColumnName="Colorful" />
+          <ScalarProperty Name="RecogniseSurroundings" ColumnName="RecogniseSurroundings" />
+          <ScalarProperty Name="PastMemories" ColumnName="PastMemories" />
+          <ScalarProperty Name="Emotion" ColumnName="Emotion" />
+          <ScalarProperty Name="Conflict" ColumnName="Conflict" />
+          <ScalarProperty Name="Resolution" ColumnName="Resolution" />
+          <ScalarProperty Name="RelatedConflict" ColumnName="RelatedConflict" />
+          <ScalarProperty Name="Prophetic" ColumnName="Prophetic" />
+          <ScalarProperty Name="Spiritual" ColumnName="Spiritual" />
+          <ScalarProperty Name="Rating" ColumnName="Rating" />
+          <ScalarProperty Name="Insight" ColumnName="Insight" />
+          <ScalarProperty Name="Length" ColumnName="Length" />
+          <ScalarProperty Name="DetailedText" ColumnName="DetailedText" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="LucidDreamer.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Tables">
+      <EntityTypeMapping TypeName="LucidDreamer.Table">
+        <MappingFragment StoreEntitySet="Table">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="AspId" ColumnName="AspId" />
+          <ScalarProperty Name="Points" ColumnName="Points" />
+          <ScalarProperty Name="DreamEntries" ColumnName="DreamEntries" />
+          <ScalarProperty Name="DiaryEntries" ColumnName="DiaryEntries" />
+          <ScalarProperty Name="MainGoal" ColumnName="MainGoal" />
+          <ScalarProperty Name="Image" ColumnName="Image" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LucidDreamer" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Diary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AspId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Sleep" Type="Int32" Nullable="false" />
+    <Property Name="MorningTime" Type="Int32" Nullable="false" />
+    <Property Name="BedTime" Type="Int32" Nullable="false" />
+    <Property Name="Meditation" Type="Int32" Nullable="false" />
+    <Property Name="Exercise" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Breakfast" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lunch" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Dinner" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Energy" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Motivation" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Emotion" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Productive" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Goal1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Goal2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Goal3" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="PlanSummary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rating" Type="Int32" Nullable="false" />
+    <Property Name="Notes" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DreamText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AspId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Summary" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Lucid" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="NScenes" Type="Int32" Nullable="false" />
+    <Property Name="NDirectPeople" Type="Int32" Nullable="false" />
+    <Property Name="NBackgroundPeople" Type="Int32" Nullable="false" />
+    <Property Name="NKnownPeople" Type="Int32" Nullable="false" />
+    <Property Name="NFantasyCharacters" Type="Int32" Nullable="false" />
+    <Property Name="NArchitypicalCharacters" Type="Int32" Nullable="false" />
+    <Property Name="NFalseAwakenings" Type="Int32" Nullable="false" />
+    <Property Name="Fly" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Run" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TFly" Type="Int32" Nullable="false" />
+    <Property Name="TRun" Type="Int32" Nullable="false" />
+    <Property Name="Control" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Relate" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Real" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Yourself" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Colorful" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="RecogniseSurroundings" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="PastMemories" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Emotion" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Conflict" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Resolution" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="RelatedConflict" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Prophetic" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Spiritual" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Rating" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Insight" Type="Decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Length" Type="Int32" Nullable="false" />
+    <Property Name="DetailedText" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AspId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="Points" Type="Int32" />
+    <Property Name="DreamEntries" Type="Int32" />
+    <Property Name="DiaryEntries" Type="Int32" />
+    <Property Name="MainGoal" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="LucidDreamerEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Diaries" EntityType="Self.Diary" />
+    <EntitySet Name="DreamTexts" EntityType="Self.DreamText" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Tables" EntityType="Self.Table" />
+  </EntityContainer>
+</Schema>

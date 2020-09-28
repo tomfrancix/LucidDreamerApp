@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="LucidDreamer.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Diary">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AspId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Summary" Type="text" Nullable="false" />
+    <Property Name="Sleep" Type="int" Nullable="false" />
+    <Property Name="MorningTime" Type="int" Nullable="false" />
+    <Property Name="BedTime" Type="int" Nullable="false" />
+    <Property Name="Meditation" Type="int" Nullable="false" />
+    <Property Name="Exercise" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Breakfast" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Lunch" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Dinner" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Energy" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Motivation" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Emotion" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Productive" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Goal1" Type="varchar(max)" Nullable="false" />
+    <Property Name="Goal2" Type="varchar(max)" Nullable="false" />
+    <Property Name="Goal3" Type="varchar(max)" Nullable="false" />
+    <Property Name="PlanSummary" Type="varchar(max)" Nullable="false" />
+    <Property Name="Rating" Type="int" Nullable="false" />
+    <Property Name="Notes" Type="varchar" MaxLength="1" />
+  </EntityType>
+  <EntityType Name="DreamText">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AspId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Date" Type="datetime" Nullable="false" />
+    <Property Name="Summary" Type="text" Nullable="false" />
+    <Property Name="Lucid" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NScenes" Type="int" Nullable="false" />
+    <Property Name="NDirectPeople" Type="int" Nullable="false" />
+    <Property Name="NBackgroundPeople" Type="int" Nullable="false" />
+    <Property Name="NKnownPeople" Type="int" Nullable="false" />
+    <Property Name="NFantasyCharacters" Type="int" Nullable="false" />
+    <Property Name="NArchitypicalCharacters" Type="int" Nullable="false" />
+    <Property Name="NFalseAwakenings" Type="int" Nullable="false" />
+    <Property Name="Fly" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Run" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="TFly" Type="int" Nullable="false" />
+    <Property Name="TRun" Type="int" Nullable="false" />
+    <Property Name="Control" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Relate" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Real" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Yourself" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Colorful" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="RecogniseSurroundings" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="PastMemories" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Emotion" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Conflict" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Resolution" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="RelatedConflict" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Prophetic" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Spiritual" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Rating" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Insight" Type="decimal" Precision="5" Scale="2" Nullable="false" />
+    <Property Name="Length" Type="int" Nullable="false" />
+    <Property Name="DetailedText" Type="text" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Table">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AspId" Type="nvarchar" MaxLength="128" />
+    <Property Name="Points" Type="int" />
+    <Property Name="DreamEntries" Type="int" />
+    <Property Name="DiaryEntries" Type="int" />
+    <Property Name="MainGoal" Type="text" />
+    <Property Name="Image" Type="varchar(max)" />
+  </EntityType>
+  <EntityContainer Name="LucidDreamerStoreContainer">
+    <EntitySet Name="Diary" EntityType="Self.Diary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DreamText" EntityType="Self.DreamText" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Table" EntityType="Self.Table" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

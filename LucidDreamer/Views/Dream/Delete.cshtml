@@ -1,0 +1,280 @@
+﻿@model LucidDreamer.Models.DreamText
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DreamText</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Summary)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Summary)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lucid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lucid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NScenes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NScenes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NDirectPeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NDirectPeople)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NBackgroundPeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NBackgroundPeople)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NKnownPeople)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NKnownPeople)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NFantasyCharacters)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NFantasyCharacters)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NArchitypicalCharacters)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NArchitypicalCharacters)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NFalseAwakenings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NFalseAwakenings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Run)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Run)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TFly)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TFly)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TRun)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRun)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Control)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Control)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Relate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Relate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Real)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Real)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Yourself)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Yourself)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Colorful)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Colorful)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RecogniseSurroundings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RecogniseSurroundings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PastMemories)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PastMemories)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Emotion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Emotion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Conflict)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Conflict)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Resolution)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Resolution)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RelatedConflict)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RelatedConflict)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prophetic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prophetic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Spiritual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Spiritual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Insight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Insight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DetailedText)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DetailedText)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

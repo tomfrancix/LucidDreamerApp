@@ -1,0 +1,66 @@
+﻿@model LucidDreamer.Models.User
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>User</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AspId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AspId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Points)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Points)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DreamEntries)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DreamEntries)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiaryEntries)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiaryEntries)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainGoal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainGoal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
